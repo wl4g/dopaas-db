@@ -1,4 +1,4 @@
-# XCloud Devops DB
+# XCloud DoPaaS DB
 This repository is for storage only https://github.com/wl4g/xcloud-dopaas The DB files for the project.
 
 ### Description
