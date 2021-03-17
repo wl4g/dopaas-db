@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql#safecloud-fat
+ Source Server         : mysql#local
  Source Server Type    : MySQL
- Source Server Version : 50645
- Source Host           : anjiancloud.owner:30601
- Source Schema         : devops
+ Source Server Version : 50728
+ Source Host           : 127.0.0.1:3306
+ Source Schema         : dopaas
 
  Target Server Type    : MySQL
- Target Server Version : 50645
+ Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 13/03/2021 20:40:23
+ Date: 17/03/2021 16:32:11
 */
 
 SET NAMES utf8mb4;
@@ -166,7 +166,7 @@ CREATE TABLE `cmdb_dns_private_resolution` (
 DROP TABLE IF EXISTS `cmdb_dns_private_zone`;
 CREATE TABLE `cmdb_dns_private_zone` (
   `id` bigint(25) NOT NULL,
-  `zone` varchar(255) COLLATE utf8_bin NOT NULL COMMENT 'e.g: wl4g.com, sunwuu.com',
+  `zone` varchar(255) COLLATE utf8_bin NOT NULL COMMENT 'e.g: wl4g.com',
   `dns_server_id` bigint(25) DEFAULT NULL,
   `status` varchar(32) COLLATE utf8_bin NOT NULL COMMENT 'RUNNING,DISABLED,EXPIRED',
   `register_date` datetime DEFAULT NULL,
@@ -1026,46 +1026,46 @@ CREATE TABLE `sys_cluster_config` (
 -- Records of sys_cluster_config
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_cluster_config` VALUES (1, 'uci-server', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14046/uci-server', 'http://localhost:14046/uci-server', 'uci platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (2, 'iam-web', 1, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14040/iam-web', 'http://localhost:14040/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (3, 'ucm-server', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14043/ucm-server', 'http://localhost:14043/ucm-server', 'ucm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (4, 'cmdb-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14051/cmdb-manager', 'http://localhost:14051/cmdb-manager', 'cmdb platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (6, 'umc-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14048/umc-manager', 'http://localhost:14048/umc-manager', 'Umc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (7, 'uci-server', 2, 'fat', 'http://localhost:8080', 'http://uci.wl4g.fat/uci-server', 'http://localhost:14046/uci-server', 'uci platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (8, 'iam-web', 1, 'fat', 'http://localhost:8080', 'http://iam.wl4g.fat/iam-web', 'http://localhost:14040/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (9, 'ucm-server', 2, 'fat', 'http://localhost:8080', 'http://ucm.wl4g.fat/ucm-server', 'http://localhost:14043/ucm-server', 'ucm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (10, 'cmdb-manager', 2, 'fat', 'http://localhost:8080', 'http://cmdb.wl4g.fat/cmdb-manager', 'http://localhost:14051/cmdb-manager', 'cmdb platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (12, 'umc-manager', 2, 'fat', 'http://localhost:8080', 'http://umc.wl4g.fat/umc-manager', 'http://localhost:14048/umc-manager', 'Umc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (13, 'uci-server', 2, 'pro', 'http://localhost:8080', 'https://uci.wl4g.com/uci-server', 'http://localhost:14046/uci-server', 'uci platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (14, 'iam-web', 1, 'pro', 'http://localhost:8080', 'https://iam.wl4g.com/iam-web', 'http://localhost:14040/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (15, 'ucm-server', 2, 'pro', 'http://localhost:8080', 'https://ucm.wl4g.com/ucm-server', 'http://localhost:14043/ucm-server', 'ucm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (16, 'cmdb-manager', 2, 'pro', 'http://localhost:8080', 'https://cmdb.wl4g.com/cmdb-manager', 'http://localhost:14051/cmdb-manager', 'cmdb platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (17, 'umc-manager', 2, 'pro', 'http://localhost:8080', 'https://umc.wl4g.com/umc-manager', 'http://localhost:14048/umc-manager', 'Umc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (18, 'udm-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14060/udm-manager', 'http://localhost:14060/udm-manager', 'udm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (19, 'udm-manager', 2, 'fat', 'http://localhost:8080', 'http://udm.wl4g.fat/udm-manager', 'http://localhost:14060/udm-manager', 'udm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (20, 'udm-manager', 2, 'pro', 'http://localhost:8080', 'https://udm.wl4g.com/udm-manager', 'http://localhost:14060/udm-manager', 'udm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (21, 'coss-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14062/coss-manager', 'http://localhost:14062/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (22, 'coss-manager', 2, 'fat', 'http://localhost:8080', 'http://coss-console.wl4g.fat/coss-manager', 'http://localhost:14062/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (23, 'coss-manager', 2, 'pro', 'http://localhost:8080', 'https://coss-console.wl4g.com/coss-manager', 'http://localhost:14062/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (24, 'urm-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14063/urm-manager', 'http://localhost:14063/urm-manager', 'urm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (25, 'urm-manager', 2, 'fat', 'http://localhost:8080', 'http://urm.wl4g.fat/urm-manager', 'http://localhost:14063/urm-manager', 'urm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (26, 'urm-manager', 2, 'pro', 'http://localhost:8080', 'https://urm.wl4g.com/urm-manager', 'http://localhost:14063/urm-manager', 'urm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (27, 'uci-server', 2, 'uat', 'http://localhost:8080', 'http://uci.wl4g.uat/uci-server', 'http://localhost:14046/uci-server', 'uci platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (28, 'iam-web', 1, 'uat', 'http://localhost:8080', 'http://iam.wl4g.uat/iam-web', 'http://localhost:14040/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (29, 'ucm-server', 2, 'uat', 'http://localhost:8080', 'http://ucm.wl4g.uat/ucm-server', 'http://localhost:14043/ucm-server', 'ucm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (30, 'cmdb-manager', 2, 'uat', 'http://localhost:8080', 'http://cmdb.wl4g.uat/cmdb-manager', 'http://localhost:14051/cmdb-manager', 'cmdb platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (31, 'umc-manager', 2, 'uat', 'http://localhost:8080', 'http://umc-manager.wl4g.uat/umc-manager', 'http://localhost:14048/umc-manager', 'Umc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (32, 'urm-manager', 2, 'uat', 'http://localhost:8080', 'http://urm.wl4g.uat/urm-manager', 'http://localhost:14063/urm-manager', 'urm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (33, 'coss-manager', 2, 'uat', 'http://localhost:8080', 'http://coss-console.wl4g.uat/coss-manager', 'http://localhost:14062/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (34, 'udm-manager', 2, 'uat', 'http://localhost:8080', 'http://udm.wl4g.uat/udm-manager', 'http://localhost:14060/udm-manager', 'udm platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (35, 'udc-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:14080/udc-manager', 'http://localhost:14080/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (36, 'udc-manager', 2, 'fat', 'http://localhost:8080', 'http://udc.wl4g.fat/udc-manager', 'http://localhost:14080/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (37, 'udc-manager', 2, 'uat', 'http://localhost:8080', 'http://udc.wl4g.uat/udc-manager', 'http://localhost:14080/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (38, 'udc-manager', 2, 'pro', 'http://localhost:8080', 'https://udc.wl4g.com/udc-manager', 'http://localhost:14080/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (43, 'devops-server', 2, 'dev', 'http://localhost:20000', 'http://wl4g.debug:20000/devops-server', 'http://localhost:20000/devops-server', 'Devops platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (44, 'devops-server', 2, 'fat', 'http://localhost:20000', 'http://devops-services.wl4g.fat/devops-server', 'http://localhost:20000/devops-server', 'Devops platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (45, 'devops-server', 2, 'uat', 'http://localhost:20000', 'http://devops-services.wl4g.uat/devops-server', 'http://localhost:20000/devops-server', 'Devops platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (46, 'devops-server', 2, 'pro', 'http://localhost:20000', 'http://devops-services.wl4g.com/devops-server', 'http://localhost:20000/devops-server', 'Devops platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (1, 'UCI-server', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17020/UCI-server', 'http://localhost:17020/UCI-server', 'UCI platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (2, 'iam-web', 1, 'dev', 'http://localhost:8080', 'http://wl4g.debug:18080/iam-web', 'http://localhost:18080/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (3, 'UCM-server', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17030/UCM-server', 'http://localhost:17030/UCM-server', 'UCM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (4, 'CMDB-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17010/CMDB-manager', 'http://localhost:17010/CMDB-manager', 'CMDB platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (6, 'umc-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17060/umc-manager', 'http://localhost:17060/umc-manager', 'UMC platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (7, 'UCI-server', 2, 'fat', 'http://localhost:8080', 'http://UCI.sunwuu.fat/UCI-server', 'http://localhost:17020/UCI-server', 'UCI platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (8, 'iam-web', 1, 'fat', 'http://localhost:8080', 'http://iam.sunwuu.fat/iam-web', 'http://localhost:18080/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (9, 'UCM-server', 2, 'fat', 'http://localhost:8080', 'http://UCM.sunwuu.fat/UCM-server', 'http://localhost:17030/UCM-server', 'UCM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (10, 'CMDB-manager', 2, 'fat', 'http://localhost:8080', 'http://CMDB.sunwuu.fat/CMDB-manager', 'http://localhost:17010/CMDB-manager', 'CMDB platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (12, 'umc-manager', 2, 'fat', 'http://localhost:8080', 'http://umc.sunwuu.fat/umc-manager', 'http://localhost:17060/umc-manager', 'UMC platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (13, 'UCI-server', 2, 'pro', 'http://localhost:8080', 'https://UCI.sunwuu.com/UCI-server', 'http://localhost:17020/UCI-server', 'UCI platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (14, 'iam-web', 1, 'pro', 'http://localhost:8080', 'https://iam.sunwuu.com/iam-web', 'http://localhost:18080/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (15, 'UCM-server', 2, 'pro', 'http://localhost:8080', 'https://UCM.sunwuu.com/UCM-server', 'http://localhost:17030/UCM-server', 'UCM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (16, 'CMDB-manager', 2, 'pro', 'http://localhost:8080', 'https://CMDB.sunwuu.com/CMDB-manager', 'http://localhost:17010/CMDB-manager', 'CMDB platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (17, 'umc-manager', 2, 'pro', 'http://localhost:8080', 'https://umc.sunwuu.com/umc-manager', 'http://localhost:17060/umc-manager', 'UMC platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (18, 'UDM-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17050/UDM-manager', 'http://localhost:17050/UDM-manager', 'UDM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (19, 'UDM-manager', 2, 'fat', 'http://localhost:8080', 'http://UDM.sunwuu.fat/UDM-manager', 'http://localhost:17050/UDM-manager', 'UDM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (20, 'UDM-manager', 2, 'pro', 'http://localhost:8080', 'https://UDM.sunwuu.com/UDM-manager', 'http://localhost:17050/UDM-manager', 'UDM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (21, 'coss-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17090/coss-manager', 'http://localhost:17090/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (22, 'coss-manager', 2, 'fat', 'http://localhost:8080', 'http://coss-console.sunwuu.fat/coss-manager', 'http://localhost:17090/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (23, 'coss-manager', 2, 'pro', 'http://localhost:8080', 'https://coss-console.sunwuu.com/coss-manager', 'http://localhost:17090/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (24, 'URM-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17070/URM-manager', 'http://localhost:17070/URM-manager', 'URM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (25, 'URM-manager', 2, 'fat', 'http://localhost:8080', 'http://URM.sunwuu.fat/URM-manager', 'http://localhost:17070/URM-manager', 'URM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (26, 'URM-manager', 2, 'pro', 'http://localhost:8080', 'https://URM.sunwuu.com/URM-manager', 'http://localhost:17070/URM-manager', 'URM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (27, 'UCI-server', 2, 'uat', 'http://localhost:8080', 'http://UCI.sunwuu.uat/UCI-server', 'http://localhost:17020/UCI-server', 'UCI platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (28, 'iam-web', 1, 'uat', 'http://localhost:8080', 'http://iam.sunwuu.uat/iam-web', 'http://localhost:18080/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (29, 'UCM-server', 2, 'uat', 'http://localhost:8080', 'http://UCM.sunwuu.uat/UCM-server', 'http://localhost:17030/UCM-server', 'UCM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (30, 'CMDB-manager', 2, 'uat', 'http://localhost:8080', 'http://CMDB.sunwuu.uat/CMDB-manager', 'http://localhost:17010/CMDB-manager', 'CMDB platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (31, 'umc-manager', 2, 'uat', 'http://localhost:8080', 'http://umc-manager.sunwuu.uat/umc-manager', 'http://localhost:17060/umc-manager', 'UMC platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (32, 'URM-manager', 2, 'uat', 'http://localhost:8080', 'http://URM.sunwuu.uat/URM-manager', 'http://localhost:17070/URM-manager', 'URM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (33, 'coss-manager', 2, 'uat', 'http://localhost:8080', 'http://coss-console.sunwuu.uat/coss-manager', 'http://localhost:17090/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (34, 'UDM-manager', 2, 'uat', 'http://localhost:8080', 'http://UDM.sunwuu.uat/UDM-manager', 'http://localhost:17050/UDM-manager', 'UDM platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (35, 'udc-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17040/udc-manager', 'http://localhost:17040/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (36, 'udc-manager', 2, 'fat', 'http://localhost:8080', 'http://udc.sunwuu.fat/udc-manager', 'http://localhost:17040/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (37, 'udc-manager', 2, 'uat', 'http://localhost:8080', 'http://udc.sunwuu.uat/udc-manager', 'http://localhost:17040/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (38, 'udc-manager', 2, 'pro', 'http://localhost:8080', 'https://udc.sunwuu.com/udc-manager', 'http://localhost:17040/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (43, 'dopaas-server', 2, 'dev', 'http://localhost:20000', 'http://wl4g.debug:20000/dopaas-server', 'http://localhost:20000/dopaas-server', 'dopaas platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (44, 'dopaas-server', 2, 'fat', 'http://localhost:20000', 'http://dopaas-services.sunwuu.fat/dopaas-server', 'http://localhost:20000/dopaas-server', 'dopaas platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (45, 'dopaas-server', 2, 'uat', 'http://localhost:20000', 'http://dopaas-services.sunwuu.uat/dopaas-server', 'http://localhost:20000/dopaas-server', 'dopaas platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (46, 'dopaas-server', 2, 'pro', 'http://localhost:20000', 'http://dopaas-services.sunwuu.com/dopaas-server', 'http://localhost:20000/dopaas-server', 'dopaas platform', NULL, NULL, NULL, NULL, 0);
 COMMIT;
 
 -- ----------------------------
@@ -1371,7 +1371,7 @@ INSERT INTO `sys_menu` VALUES (19, 'APP Cluster', '集群管理', 1, 'classifyE'
 INSERT INTO `sys_menu` VALUES (20, 'Dictionaries', '字典配置', 1, 'classifyJ', 2, 0, 5, 'iam:dict', '/iam/dict/Dict', '/dict', NULL, 'icon-zidianguanli', 70, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:34', 0);
 INSERT INTO `sys_menu` VALUES (21, 'Notifications', '通知设置', 1, 'classifyJ', 2, 0, 5, 'iam:contact', '/iam/contact/Contact', '/contact', NULL, 'icon-lianxiren', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:51', 0);
 INSERT INTO `sys_menu` VALUES (22, 'Log Console', '日志控制台', 1, 'classifyE', 3, 0, 18148396, 'cmdb:console', '/erm/console/Console', '/console', NULL, 'icon-yunxingrizhi', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:09:30', 0);
-INSERT INTO `sys_menu` VALUES (23, 'SBA Monitor', 'SBA监控', 2, 'classifyB', 2, 0, 2, 'umc:sbamonitor', 'http://www.baidu.com', '/sbamonitor', NULL, 'icon-jiankong', 30, 1, '2019-11-01 15:54:37', 1, '2021-03-13 19:30:56', 0);
+INSERT INTO `sys_menu` VALUES (23, 'SBA Monitor', 'SBA监控', 2, 'classifyB', 2, 0, 2, 'umc:sbamonitor', 'http://10.0.0.160:17062/umc-collector/', '/sbamonitor', NULL, 'icon-jiankong', 30, 1, '2019-11-01 15:54:37', 1, '2021-03-14 00:31:54', 0);
 INSERT INTO `sys_menu` VALUES (24, 'Biz Traffic', '业务流量', 1, 'classifyB', 2, 0, 2, 'umc:biztraffic', '/umc/biztraffic/Biztraffic', '/biztraffic', NULL, 'icon-liuliang', 10, 1, '2019-11-01 15:54:37', 1, '2021-03-13 19:31:03', 0);
 INSERT INTO `sys_menu` VALUES (25, 'Alarm Logs', '告警事件', 1, 'classifyB', 2, 0, 61481, 'umc:record', '/umc/record/Record', '/record', NULL, 'icon-alarm', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:15', 0);
 INSERT INTO `sys_menu` VALUES (26, 'Rules Config', '规则配置', 1, 'classifyB', 2, 0, 61481, 'umc:config', '/umc/config/Config', '/config', NULL, 'icon-gaojingshezhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:19', 0);
@@ -1468,8 +1468,9 @@ INSERT INTO `sys_menu` VALUES (5201256340520960, 'EnterpriseApi', '接口配置'
 INSERT INTO `sys_menu` VALUES (5201256340520961, 'Documents', '文档管理', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterprisemd', '/doc/enterprisemd/EnterpriseMd', '/enterprisemd', 'NULL', 'icon-wenjian', 20, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:29:32', 0);
 INSERT INTO `sys_menu` VALUES (5201256340520966, 'APIs Docs', '接口管理', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterpriseprojectpanel', '/doc/enterpriseprojectpanel/EnterpriseProjectPanel', '/enterpriseprojectpanel', 'NULL', 'icon-codeoptimizatio', 10, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:32:26', 0);
 INSERT INTO `sys_menu` VALUES (5201256340520967, 'Doc Template', '文档模版', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterprisetemplate', '/doc/enterprisetemplate/EnterpriseTemplate', '/enterprisetemplate', 'NULL', 'icon-gongju3', 50, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:27:11', 0);
-INSERT INTO `sys_menu` VALUES (5354288238624768, 'Request Tracking', '链路追踪', 2, 'classifyB', 2, 0, 2, 'umc:trace:list', 'http://10.0.0.160:9411/zipkin/', '/tracking', '_blank', 'icon-daima-fenzhi', 20, 1, '2021-03-13 19:26:34', 1, '2021-03-13 19:31:00', 0);
+INSERT INTO `sys_menu` VALUES (5354288238624768, 'Request Tracking', '链路追踪', 2, 'classifyB', 2, 0, 2, 'umc:trace:list', 'http://10.0.0.160:9411/zipkin/', '/tracking', '_self', 'icon-daima-fenzhi', 20, 1, '2021-03-13 19:26:34', 1, '2021-03-13 20:54:51', 0);
 INSERT INTO `sys_menu` VALUES (5354342182584320, 'Application Docs', '应用文档', 1, NULL, 2, 0, 47, 'udm', '/doc/enterpriseprojectpanel/EnterpriseProjectPanel', '/udm', '_self', 'icon-zichanguanli', 5, 1, '2021-03-13 20:21:26', 1, '2021-03-13 20:25:47', 0);
+INSERT INTO `sys_menu` VALUES (5354373700272128, 'Eureka Dashboard', 'Eureka仪表盘', 2, NULL, 2, 0, 2, 'umc:eureka', 'http://10.0.0.160:9001/', '/eureka', '_self', 'icon-codeoptimizatio', 25, 1, '2021-03-13 20:53:30', 1, '2021-03-14 00:36:47', 0);
 COMMIT;
 
 -- ----------------------------
@@ -1701,7 +1702,7 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (1, 'root', 'root', '系统超级管理员', 'cd446a729ea1d31d712be2ff9c1401d87beb14a811ceb7a61b3a66a4d34177f8', 'a3e0b320c73020aa81ebf87bd8611bf1', 0, 1, 0, '983708408@qq.com', '18127968606', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '系统超级管理员', 1, '2019-11-17 18:11:00', 1, '2019-11-17 18:13:34', 0);
+INSERT INTO `sys_user` VALUES (1, 'root', 'root', '系统超级管理员', '729f609cb2db3a1d50f51d658adb7f571b8ca72a7046641eae6b8824571f1bce', 'a3e0b320c73020aa81ebf87bd8611bf1', 0, 1, 0, '983708408@qq.com', '18127968606', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '系统超级管理员', 1, '2019-11-17 18:11:00', 1, '2019-11-17 18:13:34', 0);
 INSERT INTO `sys_user` VALUES (2, 'wanglsir', 'wanglsir', 'wanglsir', '5d384f8be417463220e009fa57c523fe3feb345807d5983deb5193e6df1f154b43bc75d00ba47742d3b25e74f9fa0cec51e529edb4b8b61bcdfbfd21b697b1ff', 'd553592177c116c3458f02007577fc09', 0, 1, 0, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OWNER-wanglsir', 1, '2019-11-17 18:11:00', 1, '2020-10-29 11:12:59', 0);
 INSERT INTO `sys_user` VALUES (5, 'liuxl', 'liuxl', '刘童鞋', '81d206f6f32bf1d48728fc351cdde734a658b908cac178d3ab3be6bfff9644f169548439c0ab4e5c40b834807ef5dcdbd33476f53466795ce693e61ae548cf9a', 'cb93f6efd291fbc66d59d082e4014c12', 0, 1, 0, 'zhangsan@gmail.com', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Tester-刘童鞋', 1, '2019-10-30 11:16:05', 1, '2020-10-30 08:35:41', 0);
 INSERT INTO `sys_user` VALUES (7, 'hwjie', 'hwjie', '何童鞋', '9bc434a8c2fb6f0ff3d218198bc2eea4ce4376c900b1a7f752098c0aad080e2d6f8c3c3a9f9117f1840fc9584f809718', '36c9ebe0f18dfb0464f80dbc21180803', 0, 1, 0, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PMC-何童鞋', 1, '2019-11-17 15:01:05', 1, '2020-10-29 11:12:39', 0);
