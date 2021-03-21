@@ -11,7 +11,7 @@
  Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 17/03/2021 16:32:11
+ Date: 21/03/2021 18:46:31
 */
 
 SET NAMES utf8mb4;
@@ -1020,52 +1020,56 @@ CREATE TABLE `sys_cluster_config` (
   `update_date` datetime DEFAULT NULL,
   `del_flag` int(1) NOT NULL DEFAULT '0' COMMENT '删除状态（0：正常，1：删除）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='应用集群配置表（cluster与环境关联的具体配置，一定程度上也相当于app_cluster的明细子表，注：如，对于公私混合部署时，一个cluster_id/env_id可对应多条记录，iam/online功能会用到）';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='分布式集群配置表（主要记录对外暴露的门户服务(即web层, 但不包括如facade层)）';
 
 -- ----------------------------
 -- Records of sys_cluster_config
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_cluster_config` VALUES (1, 'UCI-server', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17020/UCI-server', 'http://localhost:17020/UCI-server', 'UCI platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (2, 'iam-web', 1, 'dev', 'http://localhost:8080', 'http://wl4g.debug:18080/iam-web', 'http://localhost:18080/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (3, 'UCM-server', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17030/UCM-server', 'http://localhost:17030/UCM-server', 'UCM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (4, 'CMDB-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17010/CMDB-manager', 'http://localhost:17010/CMDB-manager', 'CMDB platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (6, 'umc-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17060/umc-manager', 'http://localhost:17060/umc-manager', 'UMC platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (7, 'UCI-server', 2, 'fat', 'http://localhost:8080', 'http://UCI.sunwuu.fat/UCI-server', 'http://localhost:17020/UCI-server', 'UCI platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (8, 'iam-web', 1, 'fat', 'http://localhost:8080', 'http://iam.sunwuu.fat/iam-web', 'http://localhost:18080/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (9, 'UCM-server', 2, 'fat', 'http://localhost:8080', 'http://UCM.sunwuu.fat/UCM-server', 'http://localhost:17030/UCM-server', 'UCM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (10, 'CMDB-manager', 2, 'fat', 'http://localhost:8080', 'http://CMDB.sunwuu.fat/CMDB-manager', 'http://localhost:17010/CMDB-manager', 'CMDB platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (12, 'umc-manager', 2, 'fat', 'http://localhost:8080', 'http://umc.sunwuu.fat/umc-manager', 'http://localhost:17060/umc-manager', 'UMC platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (13, 'UCI-server', 2, 'pro', 'http://localhost:8080', 'https://UCI.sunwuu.com/UCI-server', 'http://localhost:17020/UCI-server', 'UCI platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (14, 'iam-web', 1, 'pro', 'http://localhost:8080', 'https://iam.sunwuu.com/iam-web', 'http://localhost:18080/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (15, 'UCM-server', 2, 'pro', 'http://localhost:8080', 'https://UCM.sunwuu.com/UCM-server', 'http://localhost:17030/UCM-server', 'UCM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (16, 'CMDB-manager', 2, 'pro', 'http://localhost:8080', 'https://CMDB.sunwuu.com/CMDB-manager', 'http://localhost:17010/CMDB-manager', 'CMDB platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (17, 'umc-manager', 2, 'pro', 'http://localhost:8080', 'https://umc.sunwuu.com/umc-manager', 'http://localhost:17060/umc-manager', 'UMC platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (18, 'UDM-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17050/UDM-manager', 'http://localhost:17050/UDM-manager', 'UDM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (19, 'UDM-manager', 2, 'fat', 'http://localhost:8080', 'http://UDM.sunwuu.fat/UDM-manager', 'http://localhost:17050/UDM-manager', 'UDM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (20, 'UDM-manager', 2, 'pro', 'http://localhost:8080', 'https://UDM.sunwuu.com/UDM-manager', 'http://localhost:17050/UDM-manager', 'UDM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (21, 'coss-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17090/coss-manager', 'http://localhost:17090/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (22, 'coss-manager', 2, 'fat', 'http://localhost:8080', 'http://coss-console.sunwuu.fat/coss-manager', 'http://localhost:17090/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (23, 'coss-manager', 2, 'pro', 'http://localhost:8080', 'https://coss-console.sunwuu.com/coss-manager', 'http://localhost:17090/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (24, 'URM-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17070/URM-manager', 'http://localhost:17070/URM-manager', 'URM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (25, 'URM-manager', 2, 'fat', 'http://localhost:8080', 'http://URM.sunwuu.fat/URM-manager', 'http://localhost:17070/URM-manager', 'URM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (26, 'URM-manager', 2, 'pro', 'http://localhost:8080', 'https://URM.sunwuu.com/URM-manager', 'http://localhost:17070/URM-manager', 'URM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (27, 'UCI-server', 2, 'uat', 'http://localhost:8080', 'http://UCI.sunwuu.uat/UCI-server', 'http://localhost:17020/UCI-server', 'UCI platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (28, 'iam-web', 1, 'uat', 'http://localhost:8080', 'http://iam.sunwuu.uat/iam-web', 'http://localhost:18080/iam-web', 'Iam platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (29, 'UCM-server', 2, 'uat', 'http://localhost:8080', 'http://UCM.sunwuu.uat/UCM-server', 'http://localhost:17030/UCM-server', 'UCM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (30, 'CMDB-manager', 2, 'uat', 'http://localhost:8080', 'http://CMDB.sunwuu.uat/CMDB-manager', 'http://localhost:17010/CMDB-manager', 'CMDB platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (31, 'umc-manager', 2, 'uat', 'http://localhost:8080', 'http://umc-manager.sunwuu.uat/umc-manager', 'http://localhost:17060/umc-manager', 'UMC platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (32, 'URM-manager', 2, 'uat', 'http://localhost:8080', 'http://URM.sunwuu.uat/URM-manager', 'http://localhost:17070/URM-manager', 'URM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (33, 'coss-manager', 2, 'uat', 'http://localhost:8080', 'http://coss-console.sunwuu.uat/coss-manager', 'http://localhost:17090/coss-manager', 'Coss platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (34, 'UDM-manager', 2, 'uat', 'http://localhost:8080', 'http://UDM.sunwuu.uat/UDM-manager', 'http://localhost:17050/UDM-manager', 'UDM platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (35, 'udc-manager', 2, 'dev', 'http://localhost:8080', 'http://wl4g.debug:17040/udc-manager', 'http://localhost:17040/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (36, 'udc-manager', 2, 'fat', 'http://localhost:8080', 'http://udc.sunwuu.fat/udc-manager', 'http://localhost:17040/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (37, 'udc-manager', 2, 'uat', 'http://localhost:8080', 'http://udc.sunwuu.uat/udc-manager', 'http://localhost:17040/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (38, 'udc-manager', 2, 'pro', 'http://localhost:8080', 'https://udc.sunwuu.com/udc-manager', 'http://localhost:17040/udc-manager', 'udc platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (43, 'dopaas-server', 2, 'dev', 'http://localhost:20000', 'http://wl4g.debug:20000/dopaas-server', 'http://localhost:20000/dopaas-server', 'dopaas platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (44, 'dopaas-server', 2, 'fat', 'http://localhost:20000', 'http://dopaas-services.sunwuu.fat/dopaas-server', 'http://localhost:20000/dopaas-server', 'dopaas platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (45, 'dopaas-server', 2, 'uat', 'http://localhost:20000', 'http://dopaas-services.sunwuu.uat/dopaas-server', 'http://localhost:20000/dopaas-server', 'dopaas platform', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (46, 'dopaas-server', 2, 'pro', 'http://localhost:20000', 'http://dopaas-services.sunwuu.com/dopaas-server', 'http://localhost:20000/dopaas-server', 'dopaas platform', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (1, 'uci-server', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17020/uci-server', 'http://localhost:17020/uci-server', 'UCI Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (2, 'iam-web', 1, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:18080/iam-web', 'http://localhost:18080/iam-web', 'IAM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (3, 'ucm-server', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17030/ucm-server', 'http://localhost:17030/ucm-server', 'UCM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (4, 'cmdb-manager', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17010/cmdb-manager', 'http://localhost:17010/cmdb-manager', 'CMDB Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (6, 'umc-manager', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17060/umc-manager', 'http://localhost:17060/umc-manager', 'UMC Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (7, 'uci-server', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://uci.wl4g.fat/uci-server', 'http://localhost:17020/uci-server', 'UCI Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (8, 'iam-web', 1, 'fat', 'http://dopaas.wl4g.fat', 'http://iam.wl4g.fat/iam-web', 'http://localhost:18080/iam-web', 'IAM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (9, 'ucm-server', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://ucm.wl4g.fat/ucm-server', 'http://localhost:17030/ucm-server', 'UCM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (10, 'cmdb-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://cmdb.wl4g.fat/cmdb-manager', 'http://localhost:17010/cmdb-manager', 'CMDB Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (12, 'umc-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://umc.wl4g.fat/umc-manager', 'http://localhost:17060/umc-manager', 'UMC Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (13, 'uci-server', 2, 'pro', 'http://dopaas.wl4g.com', 'https://uci.wl4g.com/uci-server', 'http://localhost:17020/uci-server', 'UCI Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (14, 'iam-web', 1, 'pro', 'http://dopaas.wl4g.com', 'https://iam.wl4g.com/iam-web', 'http://localhost:18080/iam-web', 'IAM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (15, 'ucm-server', 2, 'pro', 'http://dopaas.wl4g.com', 'https://ucm.wl4g.com/ucm-server', 'http://localhost:17030/ucm-server', 'UCM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (16, 'cmdb-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://cmdb.wl4g.com/cmdb-manager', 'http://localhost:17010/cmdb-manager', 'CMDB Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (17, 'umc-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://umc.wl4g.com/umc-manager', 'http://localhost:17060/umc-manager', 'UMC Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (18, 'udm-manager', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17050/udm-manager', 'http://localhost:17050/udm-manager', 'UDM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (19, 'udm-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://udm.wl4g.fat/udm-manager', 'http://localhost:17050/udm-manager', 'UDM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (20, 'udm-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://udm.wl4g.com/udm-manager', 'http://localhost:17050/udm-manager', 'UDM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (21, 'uos-manager', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17090/uos-manager', 'http://localhost:17090/uos-manager', 'UOS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (22, 'uos-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://uos.wl4g.fat/uos-manager', 'http://localhost:17090/uos-manager', 'UOS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (23, 'uos-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://uos.wl4g.com/uos-manager', 'http://localhost:17090/uos-manager', 'UOS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (24, 'urm-manager', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17070/urm-manager', 'http://localhost:17070/urm-manager', 'URM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (25, 'urm-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://urm.wl4g.fat/urm-manager', 'http://localhost:17070/urm-manager', 'URM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (26, 'urm-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://urm.wl4g.com/urm-manager', 'http://localhost:17070/urm-manager', 'URM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (27, 'uci-server', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://uci.wl4g.uat/uci-server', 'http://localhost:17020/uci-server', 'UCI Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (28, 'iam-web', 1, 'uat', 'http://dopaas.wl4g.uat', 'http://iam.wl4g.uat/iam-web', 'http://localhost:18080/iam-web', 'IAM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (29, 'ucm-server', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://ucm.wl4g.uat/ucm-server', 'http://localhost:17030/ucm-server', 'UCM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (30, 'cmdb-manager', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://cmdb.wl4g.uat/cmdb-manager', 'http://localhost:17010/cmdb-manager', 'CMDB Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (31, 'umc-manager', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://umc.wl4g.uat/umc-manager', 'http://localhost:17060/umc-manager', 'UMC Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (32, 'urm-manager', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://urm.wl4g.uat/urm-manager', 'http://localhost:17070/urm-manager', 'URM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (33, 'uos-manager', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://uos.wl4g.uat/uos-manager', 'http://localhost:17090/uos-manager', 'UOS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (34, 'udm-manager', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://udm.wl4g.uat/udm-manager', 'http://localhost:17050/udm-manager', 'UDM Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (35, 'lcdp-manager', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17040/lcdp-manager', 'http://localhost:17040/lcdp-manager', 'LCDP Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (36, 'lcdp-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://udc.wl4g.fat/lcdp-manager', 'http://localhost:17040/lcdp-manager', 'LCDP Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (37, 'lcdp-manager', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://udc.wl4g.uat/lcdp-manager', 'http://localhost:17040/lcdp-manager', 'LCDP Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (38, 'lcdp-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://udc.wl4g.com/lcdp-manager', 'http://localhost:17040/lcdp-manager', 'LCDP Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (43, 'dopaas-server', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:20000/dopaas-server', 'http://localhost:20000/dopaas-server', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (44, 'dopaas-server', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://dopaas-services.wl4g.fat/dopaas-server', 'http://localhost:20000/dopaas-server', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (45, 'dopaas-server', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://dopaas-services.wl4g.uat/dopaas-server', 'http://localhost:20000/dopaas-server', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (46, 'dopaas-server', 2, 'pro', 'http://dopaas.wl4g.com', 'http://dopaas-services.wl4g.com/dopaas-server', 'http://localhost:20000/dopaas-server', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (48, 'uds-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://uds.wl4g.fat/uds-manager', 'http://localhost:17080/uds-manager', 'UDS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (50, 'uds-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://uds.wl4g.com/uds-manager', 'http://localhost:17080/uds-manager', 'UDS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (51, 'uds-manager', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17080/uds-manager', 'http://localhost:17080/uds-manager', 'UDS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (53, 'uds-manager', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://uds.wl4g.uat/uds-manager', 'http://localhost:17080/uds-manager', 'UDS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
 COMMIT;
 
 -- ----------------------------
@@ -1919,6 +1923,18 @@ CREATE TABLE `uci_pipe_step_analysis` (
   KEY `pipe_id` (`pipe_id`) USING BTREE,
   CONSTRAINT `uci_pipe_step_analysis_ibfk_1` FOREIGN KEY (`pipe_id`) REFERENCES `uci_pipeline` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Table structure for uci_pipe_step_api
+-- ----------------------------
+DROP TABLE IF EXISTS `uci_pipe_step_api`;
+CREATE TABLE `uci_pipe_step_api` (
+  `id` bigint(20) NOT NULL,
+  `pipe_id` bigint(20) NOT NULL,
+  `enable` int(2) NOT NULL,
+  `repository_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='UCI构建管道阶段之api构建配置表(自动构建部署应用的同时更新swagger-api文档到UDM(文档管理中心))';
 
 -- ----------------------------
 -- Table structure for uci_pipe_step_building
