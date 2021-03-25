@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql#local
+ Source Server         : mysql#safecloud-fat(owner)
  Source Server Type    : MySQL
- Source Server Version : 50728
- Source Host           : 127.0.0.1:3306
+ Source Server Version : 50645
+ Source Host           : owner-node1:3306
  Source Schema         : dopaas
 
  Target Server Type    : MySQL
- Target Server Version : 50728
+ Target Server Version : 50645
  File Encoding         : 65001
 
- Date: 21/03/2021 18:46:31
+ Date: 25/03/2021 11:07:50
 */
 
 SET NAMES utf8mb4;
@@ -373,6 +373,13 @@ CREATE TABLE `cmdb_idc` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `provider` (`provider`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of cmdb_idc
+-- ----------------------------
+BEGIN;
+INSERT INTO `cmdb_idc` VALUES (5357063871643648, 'test2', '', '', '', '', 1, '', '', '2021-03-15 18:30:05', 1, '2021-03-15 18:30:08', 1, 1, 'XCP');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for cmdb_k8s_cluster
@@ -1062,10 +1069,10 @@ INSERT INTO `sys_cluster_config` VALUES (35, 'lcdp-manager', 2, 'dev', 'http://d
 INSERT INTO `sys_cluster_config` VALUES (36, 'lcdp-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://udc.wl4g.fat/lcdp-manager', 'http://localhost:17040/lcdp-manager', 'LCDP Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `sys_cluster_config` VALUES (37, 'lcdp-manager', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://udc.wl4g.uat/lcdp-manager', 'http://localhost:17040/lcdp-manager', 'LCDP Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `sys_cluster_config` VALUES (38, 'lcdp-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://udc.wl4g.com/lcdp-manager', 'http://localhost:17040/lcdp-manager', 'LCDP Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (43, 'dopaas-server', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:20000/dopaas-server', 'http://localhost:20000/dopaas-server', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (44, 'dopaas-server', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://dopaas-services.wl4g.fat/dopaas-server', 'http://localhost:20000/dopaas-server', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (45, 'dopaas-server', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://dopaas-services.wl4g.uat/dopaas-server', 'http://localhost:20000/dopaas-server', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `sys_cluster_config` VALUES (46, 'dopaas-server', 2, 'pro', 'http://dopaas.wl4g.com', 'http://dopaas-services.wl4g.com/dopaas-server', 'http://localhost:20000/dopaas-server', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (43, 'standalone-dopaas', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:20000/standalone-dopaas', 'http://localhost:20000/standalone-dopaas', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (44, 'standalone-dopaas', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://dopaas-services.wl4g.fat/standalone-dopaas', 'http://localhost:20000/standalone-dopaas', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (45, 'standalone-dopaas', 2, 'uat', 'http://dopaas.wl4g.uat', 'http://dopaas-services.wl4g.uat/standalone-dopaas', 'http://localhost:20000/standalone-dopaas', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `sys_cluster_config` VALUES (46, 'standalone-dopaas', 2, 'pro', 'http://dopaas.wl4g.com', 'http://dopaas-services.wl4g.com/standalone-dopaas', 'http://localhost:20000/standalone-dopaas', 'DoPaaS Web(Standalone Portal) Services', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `sys_cluster_config` VALUES (48, 'uds-manager', 2, 'fat', 'http://dopaas.wl4g.fat', 'http://uds.wl4g.fat/uds-manager', 'http://localhost:17080/uds-manager', 'UDS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `sys_cluster_config` VALUES (50, 'uds-manager', 2, 'pro', 'http://dopaas.wl4g.com', 'https://uds.wl4g.com/uds-manager', 'http://localhost:17080/uds-manager', 'UDS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `sys_cluster_config` VALUES (51, 'uds-manager', 2, 'dev', 'http://dopaas.wl4g.debug', 'http://wl4g.debug:17080/uds-manager', 'http://localhost:17080/uds-manager', 'UDS Web(Cluster Portal) Services', NULL, NULL, NULL, NULL, 0);
@@ -1354,100 +1361,100 @@ CREATE TABLE `sys_menu` (
 -- Records of sys_menu
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_menu` VALUES (1, 'CI/CD Deliverys', '集成交付', 1, 'classifyA', 1, 0, 0, 'uci', '/ci', '/ci', NULL, 'icon-ziyuanguanli', 30, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:05:04', 0);
-INSERT INTO `sys_menu` VALUES (2, 'Monitoring Services', '监控中心', 1, 'classifyB', 1, 0, 0, 'umc', '/umc', '/umc', NULL, 'icon-jiankong', 20, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:05:02', 0);
-INSERT INTO `sys_menu` VALUES (4, 'Distributed Configuration', '配置中心', 1, 'classifyG', 1, 0, 0, 'ucm', '/scm', '/scm', NULL, 'icon-peizhizhongxin', 40, 1, '2019-10-31 17:25:49', -1, '2020-11-12 13:47:14', 0);
-INSERT INTO `sys_menu` VALUES (5, 'System Settings', '系统设置', 1, NULL, 1, 0, 0, 'iam', '/iam', '/iam', NULL, 'icon-xitongshezhi', 100, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:08:59', 0);
-INSERT INTO `sys_menu` VALUES (6, 'CMDB Management', '资产管理', 1, 'classifyE', 1, 0, 0, 'cmdb', '/erm', '/erm', NULL, 'icon-zichanguanli', 90, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:08:54', 0);
-INSERT INTO `sys_menu` VALUES (7, 'Pipelines', '任务流水线', 1, 'classifyA', 2, 0, 1, 'uci:pipeline', '/ci/pipeline/Pipeline', '/pipeline', NULL, 'icon-liushuixian', 10, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:04:50', 0);
-INSERT INTO `sys_menu` VALUES (8, 'Building Scheduler', '构建计划', 1, 'classifyA', 2, 0, 1, 'uci:trigger', '/ci/trigger/Trigger', '/trigger', NULL, 'icon-zhixingjihua', 40, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:19', 0);
-INSERT INTO `sys_menu` VALUES (9, 'Run Records', '运行记录', 1, 'classifyA', 2, 0, 1, 'uci:pipehisdir', '', '/pipehisdir', NULL, 'icon-yunxingrizhi', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-28 10:58:00', 0);
-INSERT INTO `sys_menu` VALUES (10, 'Project Configuration', '项目配置', 1, 'classifyA', 2, 0, 1, 'uci:projectconfig', '', '/projectconfig', NULL, 'icon-chakanyilaiguanxishu', 50, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:30', 0);
-INSERT INTO `sys_menu` VALUES (11, 'Online Users', '在线用户', 1, 'classifyJ', 2, 0, 5, 'iam:online', '/iam/online/Online', '/online', NULL, 'icon-zaixianyonghu', 20, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:12:56', 0);
-INSERT INTO `sys_menu` VALUES (12, 'Users', '用户管理', 1, 'classifyJ', 2, 0, 5, 'iam:user', '/iam/user/User', '/user', NULL, 'icon-yonghuguanli', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:59', 0);
-INSERT INTO `sys_menu` VALUES (13, 'Menus', '菜单配置', 1, 'classifyJ', 2, 0, 5, 'iam:menu', '/iam/menu/Menu', '/menu', NULL, 'icon-caidan', 60, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:38', 0);
-INSERT INTO `sys_menu` VALUES (14, 'Organizations', '组织机构', 1, 'classifyJ', 2, 0, 5, 'iam:organization', '/iam/organization/Organization', '/organization', NULL, 'icon-organization', 50, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:07', 0);
-INSERT INTO `sys_menu` VALUES (15, 'Roles', '角色管理', 1, 'classifyJ', 2, 0, 5, 'iam:role', '/iam/role/Role', '/role', NULL, 'icon-jiaoseguanli', 40, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:03', 0);
-INSERT INTO `sys_menu` VALUES (16, 'Configure', '配置列表', 1, 'classifyG', 2, 0, 4, 'ucm:configuration', '/scm/configuration/Configuration', '/configuration', NULL, 'icon-yonghupeizhi', 801, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:40:27', 0);
-INSERT INTO `sys_menu` VALUES (17, 'Historical Versions', '发布版本', 1, 'classifyG', 2, 0, 4, 'ucm:historic', '/scm/historic/Historic', '/historic', NULL, 'icon-fabu', 802, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:40:34', 0);
-INSERT INTO `sys_menu` VALUES (18, 'Push Tracks', '推送轨迹', 1, 'classifyG', 2, 0, 4, 'ucm:track', '/scm/track/Track', '/track', NULL, 'icon-bianpaixin', 803, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:40:40', 0);
-INSERT INTO `sys_menu` VALUES (19, 'APP Cluster', '集群管理', 1, 'classifyE', 3, 0, 52752528, 'cmdb:cluster', '/erm/cluster/Cluster', '/cluster', NULL, 'icon-jiqun', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:09:47', 0);
-INSERT INTO `sys_menu` VALUES (20, 'Dictionaries', '字典配置', 1, 'classifyJ', 2, 0, 5, 'iam:dict', '/iam/dict/Dict', '/dict', NULL, 'icon-zidianguanli', 70, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:34', 0);
-INSERT INTO `sys_menu` VALUES (21, 'Notifications', '通知设置', 1, 'classifyJ', 2, 0, 5, 'iam:contact', '/iam/contact/Contact', '/contact', NULL, 'icon-lianxiren', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:51', 0);
-INSERT INTO `sys_menu` VALUES (22, 'Log Console', '日志控制台', 1, 'classifyE', 3, 0, 18148396, 'cmdb:console', '/erm/console/Console', '/console', NULL, 'icon-yunxingrizhi', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:09:30', 0);
-INSERT INTO `sys_menu` VALUES (23, 'SBA Monitor', 'SBA监控', 2, 'classifyB', 2, 0, 2, 'umc:sbamonitor', 'http://10.0.0.160:17062/umc-collector/', '/sbamonitor', NULL, 'icon-jiankong', 30, 1, '2019-11-01 15:54:37', 1, '2021-03-14 00:31:54', 0);
-INSERT INTO `sys_menu` VALUES (24, 'Biz Traffic', '业务流量', 1, 'classifyB', 2, 0, 2, 'umc:biztraffic', '/umc/biztraffic/Biztraffic', '/biztraffic', NULL, 'icon-liuliang', 10, 1, '2019-11-01 15:54:37', 1, '2021-03-13 19:31:03', 0);
-INSERT INTO `sys_menu` VALUES (25, 'Alarm Logs', '告警事件', 1, 'classifyB', 2, 0, 61481, 'umc:record', '/umc/record/Record', '/record', NULL, 'icon-alarm', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:15', 0);
-INSERT INTO `sys_menu` VALUES (26, 'Rules Config', '规则配置', 1, 'classifyB', 2, 0, 61481, 'umc:config', '/umc/config/Config', '/config', NULL, 'icon-gaojingshezhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:19', 0);
-INSERT INTO `sys_menu` VALUES (27, 'Alarm Template', '规则模板', 1, 'classifyB', 2, 0, 61481, 'umc:templat', '/umc/templat/Templat', '/templat', NULL, 'icon-moban', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:31', 0);
-INSERT INTO `sys_menu` VALUES (28, 'Metric Template', '度量字典', 1, 'classifyB', 2, 0, 61481, 'umc:metrictemplate', '/umc/metrictemplate/MetricTemplate', '/metrictemplate', NULL, 'icon-duliang', 40, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:36', 0);
-INSERT INTO `sys_menu` VALUES (32, 'Repositorys', '源码仓库', 1, 'classifyE', 2, 0, 54, 'urm:repository', '/vcs/repository/Repository', '/repository', NULL, 'icon-cangku', 10, 1, '2019-10-31 10:01:57', -1, '2020-10-28 10:28:10', 0);
-INSERT INTO `sys_menu` VALUES (33, 'Home', '主页', 1, 'classifyE', 1, 0, 0, 'home', '', '/home', NULL, 'icon-zhuye', 10, 1, '2019-11-26 10:42:01', -1, '2020-10-26 11:04:58', 0);
-INSERT INTO `sys_menu` VALUES (34, 'Overview', '概览', 1, 'classifyE', 2, 0, 33, 'home:overview', '/home/overview/Overview', '/overview', NULL, 'icon-gailan', 10, 1, '2019-11-26 10:42:33', -1, '2020-10-26 17:00:23', 0);
-INSERT INTO `sys_menu` VALUES (35, 'Hosts', '主机管理', 1, 'classifyE', 3, 0, 18148395, 'cmdb:host', '/erm/host/Host', '/host', NULL, 'icon-host', 10, 1, '2019-11-26 18:10:09', -1, '2020-10-26 11:11:17', 0);
-INSERT INTO `sys_menu` VALUES (36, 'Safety Quality', '安全与质量', 1, 'classifyD', 2, 0, 1, 'uci:analysis', '', '/analysis', NULL, 'icon-zhiliang', 70, 1, '2019-12-04 11:21:38', -1, '2020-10-26 11:06:57', 0);
-INSERT INTO `sys_menu` VALUES (40, 'PackageAnalyzer', '安装包分析', 2, 'classifyD', 3, 0, 36, 'uci:analysis:package', 'https://www.baidu.com/', '/package', NULL, '', 10, 1, '2019-12-17 10:00:05', -1, '2020-10-26 11:07:01', 0);
-INSERT INTO `sys_menu` VALUES (41, 'CodeAnalyzer', '源码分析', 2, 'classifyD', 3, 0, 36, 'uci:analysis:code', 'https://fanyi.baidu.com/', '/code', NULL, '', 20, 1, '2019-12-17 10:00:32', -1, '2020-10-26 11:07:06', 0);
-INSERT INTO `sys_menu` VALUES (46, 'Project Coordinations', '项目协作', 1, 'classifyA', 2, 0, 1, 'uci:pcm', '/ci/pcm/Pcm', '/pcm', NULL, 'icon-pcm', 60, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:06:51', 0);
-INSERT INTO `sys_menu` VALUES (47, 'Docs Management', '文档管理', 1, 'classifyH', 1, 0, 0, 'doc', '/doc', '/doc', NULL, 'icon-wendangguanli-xiangmuleiwendang', 60, 1, '2019-11-01 15:54:37', 1, '2021-03-13 19:22:51', 0);
-INSERT INTO `sys_menu` VALUES (48, 'Files', '文件管理', 1, 'classifyH', 2, 0, 47, 'udm:file', '/doc/file/File', '/file', NULL, 'icon-gongju4', 601, 1, '2019-11-01 15:54:37', 1, '2021-03-13 20:30:12', 0);
-INSERT INTO `sys_menu` VALUES (49, 'Shares', '分享管理', 1, 'classifyH', 2, 0, 47, 'udm:share', '/doc/share/Share', '/share', NULL, 'icon-fenxiang3', 602, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:39:03', 0);
-INSERT INTO `sys_menu` VALUES (50, 'Labels', '标签管理', 1, 'classifyH', 2, 0, 47, 'udm:label', '/doc/label/Label', '/label', NULL, 'icon-clip', 603, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:39:07', 0);
-INSERT INTO `sys_menu` VALUES (51, 'Orchestrations', '任务编排', 1, 'classifyA', 2, 0, 1, 'uci:orchestration', '/ci/orchestration/Orchestration', '/orchestration', NULL, 'icon-yonghupeizhi', 20, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:05:21', 0);
-INSERT INTO `sys_menu` VALUES (52, 'Object Storage Services', '对象存储', 1, 'classifyE', 1, 0, 0, 'coss', '/coss', '/coss', NULL, 'icon-duixiangcunchuOSS', 70, 1, '2019-11-01 15:54:37', 1, '2021-03-11 22:04:05', 0);
-INSERT INTO `sys_menu` VALUES (53, 'Buckets', 'Bucket管理', 1, 'classifyF', 2, 0, 52, 'coss:bucket', '/coss/bucket/BucketWrapper', '/bucket', NULL, 'icon-Bucket', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:07:49', 0);
-INSERT INTO `sys_menu` VALUES (54, 'Repo Manangement', '仓库管理', 1, 'classifyE', 1, 0, 0, 'vcs', '/vcs', '/vcs', NULL, 'icon-gailan', 80, 1, '2019-10-31 10:01:57', 1, '2021-03-13 20:39:02', 0);
-INSERT INTO `sys_menu` VALUES (101, 'Project Dependencies', '依赖关系', 1, 'classifyA', 3, 0, 10, 'uci:project', '/ci/project/Project', '/project', NULL, 'icon-chakanyilaiguanxishu', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:43', 0);
-INSERT INTO `sys_menu` VALUES (102, 'ClusterExtension', '集群配置', 1, 'classifyA', 3, 0, 10, 'uci:clusterextension', '/ci/clusterextension/ClusterExtension', '/clusterextension', NULL, 'icon-jiqun', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:39', 0);
-INSERT INTO `sys_menu` VALUES (103, 'Developer Center', '开发中心', 1, NULL, 1, 0, 0, 'udc', '/dts', '/dts', NULL, 'icon-ziyuanguanli', 50, 1, '2019-10-31 10:01:57', 1, '2021-03-13 19:22:41', 0);
+INSERT INTO `sys_menu` VALUES (1, 'CI/CD Deliverys', '集成交付', 1, 'classifyA', 1, 0, 0, 'uci', '/uci', '/uci', '_self', 'icon-ziyuanguanli', 30, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:05:04', 0);
+INSERT INTO `sys_menu` VALUES (2, 'Monitoring Services', '监控中心', 1, 'classifyB', 1, 0, 0, 'umc', '/umc', '/umc', '_self', 'icon-jiankong', 20, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:05:02', 0);
+INSERT INTO `sys_menu` VALUES (4, 'Distributed Configuration', '配置中心', 1, 'classifyG', 1, 0, 0, 'ucm', '/scm', '/scm', '_self', 'icon-peizhizhongxin', 40, 1, '2019-10-31 17:25:49', -1, '2020-11-12 13:47:14', 0);
+INSERT INTO `sys_menu` VALUES (5, 'System Settings', '系统设置', 1, NULL, 1, 0, 0, 'iam', '/iam', '/iam', '_self', 'icon-xitongshezhi', 100, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:08:59', 0);
+INSERT INTO `sys_menu` VALUES (6, 'CMDB Management', '资产管理', 1, 'classifyE', 1, 0, 0, 'cmdb', '/cmdb', '/cmdb', '_self', 'icon-zichanguanli', 90, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:08:54', 0);
+INSERT INTO `sys_menu` VALUES (7, 'Pipelines', '任务流水线', 1, 'classifyA', 2, 0, 1, 'uci:pipeline', '/uci/pipeline/Pipeline', '/pipeline', '_self', 'icon-liushuixian', 10, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:04:50', 0);
+INSERT INTO `sys_menu` VALUES (8, 'Building Scheduler', '构建计划', 1, 'classifyA', 2, 0, 1, 'uci:trigger', '/uci/trigger/Trigger', '/trigger', '_self', 'icon-zhixingjihua', 40, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:19', 0);
+INSERT INTO `sys_menu` VALUES (9, 'Run Records', '运行记录', 1, 'classifyA', 2, 0, 1, 'uci:pipehisdir', '', '/pipehisdir', '_self', 'icon-yunxingrizhi', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-28 10:58:00', 0);
+INSERT INTO `sys_menu` VALUES (10, 'Project Configuration', '项目配置', 1, 'classifyA', 2, 0, 1, 'uci:projectconfig', '', '/projectconfig', '_self', 'icon-chakanyilaiguanxishu', 50, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:30', 0);
+INSERT INTO `sys_menu` VALUES (11, 'Online Users', '在线用户', 1, 'classifyJ', 2, 0, 5, 'iam:online', '/iam/online/Online', '/online', '_self', 'icon-zaixianyonghu', 20, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:12:56', 0);
+INSERT INTO `sys_menu` VALUES (12, 'Users', '用户管理', 1, 'classifyJ', 2, 0, 5, 'iam:user', '/iam/user/User', '/user', '_self', 'icon-yonghuguanli', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:59', 0);
+INSERT INTO `sys_menu` VALUES (13, 'Menus', '菜单配置', 1, 'classifyJ', 2, 0, 5, 'iam:menu', '/iam/menu/Menu', '/menu', '_self', 'icon-caidan', 60, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:38', 0);
+INSERT INTO `sys_menu` VALUES (14, 'Organizations', '组织机构', 1, 'classifyJ', 2, 0, 5, 'iam:organization', '/iam/organization/Organization', '/organization', '_self', 'icon-organization', 50, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:07', 0);
+INSERT INTO `sys_menu` VALUES (15, 'Roles', '角色管理', 1, 'classifyJ', 2, 0, 5, 'iam:role', '/iam/role/Role', '/role', '_self', 'icon-jiaoseguanli', 40, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:03', 0);
+INSERT INTO `sys_menu` VALUES (16, 'Configure', '配置列表', 1, 'classifyG', 2, 0, 4, 'ucm:configuration', '/scm/configuration/Configuration', '/configuration', '_self', 'icon-yonghupeizhi', 801, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:40:27', 0);
+INSERT INTO `sys_menu` VALUES (17, 'Historical Versions', '发布版本', 1, 'classifyG', 2, 0, 4, 'ucm:historic', '/scm/historic/Historic', '/historic', '_self', 'icon-fabu', 802, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:40:34', 0);
+INSERT INTO `sys_menu` VALUES (18, 'Push Tracks', '推送轨迹', 1, 'classifyG', 2, 0, 4, 'ucm:track', '/scm/track/Track', '/track', '_self', 'icon-bianpaixin', 803, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:40:40', 0);
+INSERT INTO `sys_menu` VALUES (19, 'APP Cluster', '集群管理', 1, 'classifyE', 3, 0, 52752528, 'cmdb:cluster', '/cmdb/cluster/Cluster', '/cluster', '_self', 'icon-jiqun', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:09:47', 0);
+INSERT INTO `sys_menu` VALUES (20, 'Dictionaries', '字典配置', 1, 'classifyJ', 2, 0, 5, 'iam:dict', '/iam/dict/Dict', '/dict', '_self', 'icon-zidianguanli', 70, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:13:34', 0);
+INSERT INTO `sys_menu` VALUES (21, 'Notifications', '通知设置', 1, 'classifyJ', 2, 0, 5, 'iam:contact', '/iam/contact/Contact', '/contact', '_self', 'icon-lianxiren', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:51', 0);
+INSERT INTO `sys_menu` VALUES (22, 'Log Console', '日志控制台', 1, 'classifyE', 3, 0, 18148396, 'cmdb:console', '/cmdb/console/Console', '/console', '_self', 'icon-yunxingrizhi', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:09:30', 0);
+INSERT INTO `sys_menu` VALUES (23, 'SBA Monitor', 'SBA监控', 2, 'classifyB', 2, 0, 2, 'umc:sbamonitor', 'http://www.baidu.com', '/sbamonitor', '_self', 'icon-jiankong', 30, 1, '2019-11-01 15:54:37', 1, '2021-03-13 19:30:56', 0);
+INSERT INTO `sys_menu` VALUES (24, 'Biz Traffic', '业务流量', 1, 'classifyB', 2, 0, 2, 'umc:biztraffic', '/umc/biztraffic/Biztraffic', '/biztraffic', '_self', 'icon-liuliang', 10, 1, '2019-11-01 15:54:37', 1, '2021-03-13 19:31:03', 0);
+INSERT INTO `sys_menu` VALUES (25, 'Alarm Logs', '告警事件', 1, 'classifyB', 2, 0, 61481, 'umc:record', '/umc/record/Record', '/record', '_self', 'icon-alarm', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:15', 0);
+INSERT INTO `sys_menu` VALUES (26, 'Rules Config', '规则配置', 1, 'classifyB', 2, 0, 61481, 'umc:config', '/umc/config/Config', '/config', '_self', 'icon-gaojingshezhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:19', 0);
+INSERT INTO `sys_menu` VALUES (27, 'Alarm Template', '规则模板', 1, 'classifyB', 2, 0, 61481, 'umc:templat', '/umc/templat/Templat', '/templat', '_self', 'icon-moban', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:31', 0);
+INSERT INTO `sys_menu` VALUES (28, 'Metric Template', '度量字典', 1, 'classifyB', 2, 0, 61481, 'umc:metrictemplate', '/umc/metrictemplate/MetricTemplate', '/metrictemplate', '_self', 'icon-duliang', 40, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:04:36', 0);
+INSERT INTO `sys_menu` VALUES (32, 'Source Repository', '源码仓库', 1, 'classifyE', 2, 0, 54, 'urm:repository', '/urm/repository/Repository', '/repository', '_self', 'icon-cangku', 10, 1, '2019-10-31 10:01:57', 1, '2021-03-23 10:44:40', 0);
+INSERT INTO `sys_menu` VALUES (33, 'Home', '主页', 1, 'classifyE', 1, 0, 0, 'home', '', '/home', '_self', 'icon-zhuye', 10, 1, '2019-11-26 10:42:01', -1, '2020-10-26 11:04:58', 0);
+INSERT INTO `sys_menu` VALUES (34, 'Overview1', '概览', 1, 'classifyE', 2, 0, 33, 'home:overview', '/home/overview/Overview', '/overview', '_self', 'icon-gailan', 10, 1, '2019-11-26 10:42:33', 1, '2021-03-16 11:44:30', 0);
+INSERT INTO `sys_menu` VALUES (35, 'Hosts', '主机管理', 1, 'classifyE', 3, 0, 18148395, 'cmdb:host', '/cmdb/host/Host', '/host', '_self', 'icon-host', 10, 1, '2019-11-26 18:10:09', -1, '2020-10-26 11:11:17', 0);
+INSERT INTO `sys_menu` VALUES (36, 'Safety Quality', '安全与质量', 1, 'classifyD', 2, 0, 1, 'uci:analysis', '', '/analysis', '_self', 'icon-zhiliang', 70, 1, '2019-12-04 11:21:38', -1, '2020-10-26 11:06:57', 0);
+INSERT INTO `sys_menu` VALUES (40, 'PackageAnalyzer', '安装包分析', 2, 'classifyD', 3, 0, 36, 'uci:analysis:package', 'https://www.baidu.com/', '/package', '_self', '', 10, 1, '2019-12-17 10:00:05', -1, '2020-10-26 11:07:01', 0);
+INSERT INTO `sys_menu` VALUES (41, 'CodeAnalyzer', '源码分析', 2, 'classifyD', 3, 0, 36, 'uci:analysis:code', 'https://fanyi.baidu.com/', '/code', '_self', '', 20, 1, '2019-12-17 10:00:32', -1, '2020-10-26 11:07:06', 0);
+INSERT INTO `sys_menu` VALUES (46, 'Project Coordinations', '项目协作', 1, 'classifyA', 2, 0, 1, 'uci:pcm', '/uci/pcm/Pcm', '/pcm', '_self', 'icon-pcm', 60, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:06:51', 0);
+INSERT INTO `sys_menu` VALUES (47, 'Document Management', '文档管理', 1, 'classifyH', 1, 0, 0, 'udm', '/udm', '/udm', '_self', 'icon-wendangguanli-xiangmuleiwendang', 60, 1, '2019-11-01 15:54:37', 1, '2021-03-23 10:48:09', 0);
+INSERT INTO `sys_menu` VALUES (48, 'Files', '文件管理', 1, 'classifyH', 2, 0, 47, 'udm:file', '/udm/file/File', '/file', '_self', 'icon-gongju4', 601, 1, '2019-11-01 15:54:37', 1, '2021-03-13 20:30:12', 0);
+INSERT INTO `sys_menu` VALUES (49, 'Shares', '分享管理', 1, 'classifyH', 2, 0, 47, 'udm:share', '/udm/share/Share', '/share', '_self', 'icon-fenxiang3', 602, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:39:03', 0);
+INSERT INTO `sys_menu` VALUES (50, 'Labels', '标签管理', 1, 'classifyH', 2, 0, 47, 'udm:label', '/udm/label/Label', '/label', '_self', 'icon-clip', 603, 1, '2019-11-01 15:54:37', 1, '2020-08-26 12:39:07', 0);
+INSERT INTO `sys_menu` VALUES (51, 'Orchestrations', '任务编排', 1, 'classifyA', 2, 0, 1, 'uci:orchestration', '/uci/orchestration/Orchestration', '/orchestration', '_self', 'icon-yonghupeizhi', 20, 1, '2019-10-31 10:01:57', -1, '2020-10-26 11:05:21', 0);
+INSERT INTO `sys_menu` VALUES (52, 'Object Storage Management', '对象存储', 1, 'classifyE', 1, 0, 0, 'uos', '/uos', '/uos', '_self', 'icon-duixiangcunchuOSS', 70, 1, '2019-11-01 15:54:37', 1, '2021-03-23 10:43:28', 0);
+INSERT INTO `sys_menu` VALUES (53, 'Buckets', 'Bucket管理', 1, 'classifyF', 2, 0, 52, 'uos:bucket', '/uos/bucket/BucketWrapper', '/bucket', '_self', 'icon-Bucket', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:07:49', 0);
+INSERT INTO `sys_menu` VALUES (54, 'Repositories', '仓库管理', 1, 'classifyE', 1, 0, 0, 'urm', '/urm', '/urm', '_self', 'icon-gailan', 80, 1, '2019-10-31 10:01:57', 1, '2021-03-23 10:42:18', 0);
+INSERT INTO `sys_menu` VALUES (101, 'Project Dependencies', '依赖关系', 1, 'classifyA', 3, 0, 10, 'uci:project', '/uci/project/Project', '/project', '_self', 'icon-chakanyilaiguanxishu', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:43', 0);
+INSERT INTO `sys_menu` VALUES (102, 'ClusterExtension', '集群配置', 1, 'classifyA', 3, 0, 10, 'uci:clusterextension', '/uci/clusterextension/ClusterExtension', '/clusterextension', '_self', 'icon-jiqun', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:39', 0);
+INSERT INTO `sys_menu` VALUES (103, 'Developer Center', '开发者中心', 1, NULL, 1, 0, 0, 'lcdp', '/lcdp', '/lcdp', '_self', 'icon-ziyuanguanli', 50, 1, '2019-10-31 10:01:57', 1, '2021-03-23 10:43:44', 0);
 INSERT INTO `sys_menu` VALUES (13582, 'Rule Engine', '规则引擎', 1, 'classifyB', 3, 0, 85782, 'umc:custom:engine', '/umc/engine/Engine', '/engine', '_self', 'icon-wenjian', 10, 1, '2020-03-27 12:59:53', -1, '2020-10-26 11:01:06', 0);
 INSERT INTO `sys_menu` VALUES (36327, 'DataSource', '数据源配置', 1, 'classifyB', 3, 0, 85782, 'umc:custom:datasource', '/umc/datasource/DataSource', '/datasource', '_self', 'icon-lishiguiji', 40, 1, '2020-03-27 12:54:38', -1, '2020-10-26 11:01:38', 0);
 INSERT INTO `sys_menu` VALUES (36328, 'Event', '触发事件', 1, 'classifyB', 3, 0, 85782, 'umc:alarm:event', '/umc/alarmevent/AlarmEvent', '/event', '_self', 'icon-lishiguiji', 30, 1, '2020-03-27 12:54:38', -1, '2020-10-26 11:01:32', 0);
 INSERT INTO `sys_menu` VALUES (36329, 'History', '监控记录', 1, 'classifyB', 3, 0, 85782, 'umc:custom:history', '/umc/history/History', '/history', '_self', 'icon-lishiguiji', 20, 1, '2020-03-27 12:54:38', -1, '2020-10-26 11:01:23', 0);
 INSERT INTO `sys_menu` VALUES (61481, 'Service Monitoring', '服务监控', 1, 'classifyB', 2, 0, 2, 'umc:service', '', '/service', '_self', 'icon-host', 50, 1, '2020-03-27 13:01:40', 1, '2021-03-13 19:30:45', 0);
 INSERT INTO `sys_menu` VALUES (85782, 'Custom Monitoring', '自定义监控', 1, 'classifyB', 2, 0, 2, 'umc:custom', '', '/custom', '_self', 'icon-zidianguanli', 40, 1, '2020-03-27 12:50:42', 1, '2021-03-13 19:30:51', 0);
-INSERT INTO `sys_menu` VALUES (85783, 'Netcards', '网卡管理', 1, 'classifyE', 3, 0, 18148395, 'cmdb:netcard', '/erm/hostnetcard/HostNetcard', '/hostnetcard', NULL, 'icon-yunxingrizhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:11:20', 0);
-INSERT INTO `sys_menu` VALUES (85784, 'IDC', 'IDC管理', 1, 'classifyE', 3, 0, 18148395, 'cmdb:idc', '/erm/idc/Idc', '/idc', NULL, 'icon-IDCjifang', 40, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:11:28', 0);
-INSERT INTO `sys_menu` VALUES (85785, 'SSH Keys', 'SSH密钥', 1, 'classifyE', 3, 0, 18148395, 'cmdb:ssh', '/erm/ssh/Ssh', '/ssh', NULL, 'icon-miyao42', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:11:24', 0);
-INSERT INTO `sys_menu` VALUES (85786, 'Docker Clusters', 'Docker集群', 1, 'classifyE', 2, 0, 9425589, 'cmdb:dockercluster', '/erm/dockercluster/DockerCluster', '/dockercluster', NULL, 'icon-docker', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:10:45', 0);
-INSERT INTO `sys_menu` VALUES (85787, 'K8s Clusters', 'K8s集群', 1, 'classifyE', 2, 0, 9425589, 'cmdb:k8scluster', '/erm/k8scluster/K8sCluster', '/k8scluster', NULL, 'icon-application', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:10:52', 0);
-INSERT INTO `sys_menu` VALUES (85788, 'APP Instances', '实例配置', 1, 'classifyB', 3, 0, 52752528, 'cmdb:instance', '/erm/instance/Instance', '/instance', NULL, 'icon-yunxingrizhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:09:57', 0);
-INSERT INTO `sys_menu` VALUES (185786, 'Image Repositorys', '镜像仓库', 1, 'classifyE', 2, 0, 9425589, 'cmdb:dockerrepository', '/erm/dockerrepository/DockerRepository', '/dockerrepository', NULL, 'icon-docker', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:10:48', 0);
-INSERT INTO `sys_menu` VALUES (1857861, 'PriivateZone', '私有域名', 1, 'classifyC', 2, 0, 18148397, 'cmdb:dnsprivatedomain', '/erm/dnsprivatedomain/DnsPrivateDomain', '/dnsprivatedomain', NULL, 'icon-docker', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:11:44', 0);
-INSERT INTO `sys_menu` VALUES (1857862, 'Cluster', '网关集群', 1, 'classifyC', 2, 0, 18148398, 'gw:gateway', '/gw/gateway/Gateway', '/gateway', NULL, 'icon-docker', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:23', 0);
-INSERT INTO `sys_menu` VALUES (1857863, 'Upsterm', '上游', 2, 'classifyC', 2, 0, 1857864, 'gw:upstream', '/gw/upstream/Upstream', '/upstream', NULL, 'icon-docker', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:40', 0);
-INSERT INTO `sys_menu` VALUES (1857864, 'Upsterm Servers', '服务器分组', 1, 'classifyC', 2, 0, 18148398, 'gw:upstreamgroup', '/gw/upstreamgroup/UpstreamGroup', '/upstreamgroup', NULL, 'icon-docker', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:35', 0);
-INSERT INTO `sys_menu` VALUES (9425555, 'Orchestration History', 'Flow运行记录', 1, 'classifyA', 3, 0, 9, 'uci:orchestrationhistory', '/ci/orchestrationhistory/OrchestrationHistory', '/orchestrationhistory', NULL, 'icon-yunxingrizhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:02', 0);
-INSERT INTO `sys_menu` VALUES (9425556, 'Run Records', '运行记录', 1, 'classifyA', 3, 0, 9, 'uci:pipehis', '/ci/pipehis/PipeHistory', '/pipehis', NULL, 'icon-yunxingrizhi', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:05:43', 0);
+INSERT INTO `sys_menu` VALUES (85783, 'Netcards', '网卡管理', 1, 'classifyE', 3, 0, 18148395, 'cmdb:netcard', '/cmdb/hostnetcard/HostNetcard', '/hostnetcard', '_self', 'icon-yunxingrizhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:11:20', 0);
+INSERT INTO `sys_menu` VALUES (85784, 'IDC', 'IDC管理', 1, 'classifyE', 3, 0, 18148395, 'cmdb:idc', '/cmdb/idc/Idc', '/idc', '_self', 'icon-IDCjifang', 40, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:11:28', 0);
+INSERT INTO `sys_menu` VALUES (85785, 'SSH Keys', 'SSH密钥', 1, 'classifyE', 3, 0, 18148395, 'cmdb:ssh', '/cmdb/ssh/Ssh', '/ssh', '_self', 'icon-miyao42', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:11:24', 0);
+INSERT INTO `sys_menu` VALUES (85786, 'Docker Clusters', 'Docker集群', 1, 'classifyE', 2, 0, 9425589, 'cmdb:dockercluster', '/cmdb/dockercluster/DockerCluster', '/dockercluster', '_self', 'icon-docker', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:10:45', 0);
+INSERT INTO `sys_menu` VALUES (85787, 'K8s Clusters', 'K8s集群', 1, 'classifyE', 2, 0, 9425589, 'cmdb:k8scluster', '/cmdb/k8scluster/K8sCluster', '/k8scluster', '_self', 'icon-application', 30, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:10:52', 0);
+INSERT INTO `sys_menu` VALUES (85788, 'APP Instances', '实例配置', 1, 'classifyB', 3, 0, 52752528, 'cmdb:instance', '/cmdb/instance/Instance', '/instance', '_self', 'icon-yunxingrizhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:09:57', 0);
+INSERT INTO `sys_menu` VALUES (185786, 'Image Repositorys', '镜像仓库', 1, 'classifyE', 2, 0, 9425589, 'cmdb:dockerrepository', '/cmdb/dockerrepository/DockerRepository', '/dockerrepository', '_self', 'icon-docker', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:10:48', 0);
+INSERT INTO `sys_menu` VALUES (1857861, 'PriivateZone', '私有域名', 1, 'classifyC', 2, 0, 18148397, 'cmdb:dnsprivatedomain', '/cmdb/dnsprivatedomain/DnsPrivateDomain', '/dnsprivatedomain', '_self', 'icon-docker', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:11:44', 0);
+INSERT INTO `sys_menu` VALUES (1857862, 'Cluster', '网关集群', 1, 'classifyC', 2, 0, 18148398, 'gw:gateway', '/gw/gateway/Gateway', '/gateway', '_self', 'icon-docker', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:23', 0);
+INSERT INTO `sys_menu` VALUES (1857863, 'Upsterm', '上游', 2, 'classifyC', 2, 0, 1857864, 'gw:upstream', '/gw/upstream/Upstream', '/upstream', '_self', 'icon-docker', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:40', 0);
+INSERT INTO `sys_menu` VALUES (1857864, 'Upsterm Servers', '服务器分组', 1, 'classifyC', 2, 0, 18148398, 'gw:upstreamgroup', '/gw/upstreamgroup/UpstreamGroup', '/upstreamgroup', '_self', 'icon-docker', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:35', 0);
+INSERT INTO `sys_menu` VALUES (9425555, 'Orchestration History', 'Flow运行记录', 1, 'classifyA', 3, 0, 9, 'uci:orchestrationhistory', '/uci/orchestrationhistory/OrchestrationHistory', '/orchestrationhistory', '_self', 'icon-yunxingrizhi', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:06:02', 0);
+INSERT INTO `sys_menu` VALUES (9425556, 'Run Records', '运行记录', 1, 'classifyA', 3, 0, 9, 'uci:pipehis', '/uci/pipehis/PipeHistory', '/pipehis', '_self', 'icon-yunxingrizhi', 10, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:05:43', 0);
 INSERT INTO `sys_menu` VALUES (9425589, 'Services Cluster', '中间件服务', 1, 'classifyE', 2, 0, 6, 'cmdb:servercluster', '', '/servercluster', '_self', 'icon-ziyuan', 30, 1, '2020-06-05 15:44:28', -1, '2020-10-26 11:10:28', 0);
 INSERT INTO `sys_menu` VALUES (18148395, 'Host', '主机资产', 1, 'classifyE', 2, 0, 6, 'cmdb:cmdb', '', '/cmdb', '_self', 'icon-wenjian', 40, 1, '2020-05-13 11:57:45', -1, '2020-10-26 11:10:58', 0);
 INSERT INTO `sys_menu` VALUES (18148396, 'Logging', '日志服务', 1, 'classifyE', 2, 0, 6, 'cmdb:log', '', '/log', '_self', 'icon-log', 10, 1, '2020-05-13 11:57:45', -1, '2020-10-26 11:09:14', 0);
 INSERT INTO `sys_menu` VALUES (18148397, 'Cloud DNS', '云解析DNS', 1, 'classifyE', 2, 0, 6, 'cmdb:domain', '', '/domain', '_self', 'icon-log', 50, 1, '2020-05-13 11:57:45', -1, '2020-10-26 11:11:40', 0);
 INSERT INTO `sys_menu` VALUES (18148398, 'Gateway', '网关', 1, 'classifyE', 2, 0, 6, 'gw', '', '/gw', '_self', 'icon-log', 60, 1, '2020-05-13 11:57:45', -1, '2020-10-26 11:12:18', 0);
-INSERT INTO `sys_menu` VALUES (18578611, 'PublicZone', '公有域名', 1, 'classifyC', 2, 0, 18148397, 'cmdb:dnspublicdomain', '/erm/dnspublicdomain/DnsPublicDomain', '/dnspublicdomain', NULL, 'icon-docker', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:00', 0);
+INSERT INTO `sys_menu` VALUES (18578611, 'PublicZone', '公有域名', 1, 'classifyC', 2, 0, 18148397, 'cmdb:dnspublicdomain', '/cmdb/dnspublicdomain/DnsPublicDomain', '/dnspublicdomain', '_self', 'icon-docker', 20, 1, '2019-11-01 15:54:37', -1, '2020-10-26 11:12:00', 0);
 INSERT INTO `sys_menu` VALUES (52752528, 'Application Cluster', '应用集群', 1, 'classifyE', 2, 0, 6, 'cmdb:app', '', '/app', '_self', 'icon-Bucket', 20, 1, '2020-05-13 11:49:07', -1, '2020-10-26 11:09:43', 0);
-INSERT INTO `sys_menu` VALUES (323144704, 'Database', '数据源', 1, 'classifyI', 3, 0, 1046376448, 'udc:codegen:database', '/dts/database/Database', '/database', '_self', 'icon-shujuyuan', 302, 1, '2020-09-08 14:50:41', 1, '2020-09-21 19:58:09', 0);
-INSERT INTO `sys_menu` VALUES (323144705, 'Projects', '项目配置', 1, 'classifyI', 3, 0, 1046376448, 'udc:codegen:project', '/dts/project/Project', '/project', '_self', 'icon-wendangguanli-xiangmuleiwendang', 301, 1, '2020-09-08 14:50:41', -1, '2020-11-12 13:47:10', 0);
-INSERT INTO `sys_menu` VALUES (1046376448, 'Auto Generators', '自动生成', 1, 'classifyI', 2, 0, 103, 'udc:codegen', '', '/codegen', '_self', 'icon-codeoptimizatio', 300, 1, '2020-09-08 14:45:51', -1, '2020-10-26 10:52:29', 0);
-INSERT INTO `sys_menu` VALUES (1046376449, 'Code Studio', '在线开发', 2, 'classifyI', 2, 0, 103, 'udc:ide', 'https://www.baidu.com', '/ide', '_self', 'icon-weibiaoti46', 400, 1, '2020-09-08 14:45:51', -1, '2020-10-26 10:51:37', 0);
-INSERT INTO `sys_menu` VALUES (1046376450, 'Online Tools', '在线工具', 2, 'classifyI', 2, 0, 103, 'udc:onlinetool', 'https://www.baidu.com', '/onlinetool', '_self', 'icon-gongju3', 500, 1, '2020-09-08 14:45:51', 1, '2020-09-21 19:59:37', 0);
-INSERT INTO `sys_menu` VALUES (5148539313668096, 'Cluster Edit', '集群编辑', 3, NULL, 4, 0, 19, 'cmdb:cluster:edit', '/erm/clusteredit/ClusterEdit', '/edit', '_self', 'icon-gongju', 10, 1, '2020-10-19 11:07:56', -1, '2020-10-29 11:04:22', 0);
-INSERT INTO `sys_menu` VALUES (5148843513675776, 'Pipeline Edit', '流水线编辑', 3, NULL, 0, 0, 7, 'uci:pipeline:edit', '/ci/pipelineedit/PipelineEdit', '/edit', '_self', 'icon-gongju4', 10, 1, '2020-10-19 16:17:23', -1, '2020-10-26 11:05:15', 0);
-INSERT INTO `sys_menu` VALUES (5148845583302656, 'Record Detail', '记录详情', 3, NULL, 0, 0, 9425556, 'uci:pipehis:detail', '/ci/pipehisdetail/PipeHisDetail', '/detail', '_self', 'icon-gongju4', 10, 1, '2020-10-19 16:19:29', -1, '2020-10-26 11:05:49', 0);
-INSERT INTO `sys_menu` VALUES (5148847007825920, 'Doc Different', '文档比较', 3, NULL, 0, 0, 48, 'udm:file:diff', '/doc/diff/Diff', '/diff', '_self', 'icon-shengchengdaima', 100, 1, '2020-10-19 16:20:56', 1, '2020-10-19 16:20:56', 0);
-INSERT INTO `sys_menu` VALUES (5148847840182272, 'Doc Edit', '文档编辑', 3, NULL, 0, 0, 48, 'udm:file:edit', '/doc/mdedit/MdEdit', '/edit', '_self', 'icon-shengchengdaima', 200, 1, '2020-10-19 16:21:47', 1, '2020-10-19 16:21:47', 0);
-INSERT INTO `sys_menu` VALUES (5148851468500992, 'DnsPrivateResolution', '私有域名管理', 3, NULL, 0, 0, 1857861, 'cmdb:dns:resolution', '/erm/dnsprivateresolution/DnsPrivateResolution', '/resolution', '_self', 'icon--peizhishujuyuan', 10, 1, '2020-10-19 16:25:28', -1, '2020-10-26 11:11:49', 0);
-INSERT INTO `sys_menu` VALUES (5148852587610112, 'Dns Blacklist', 'DNS黑名单', 3, NULL, 0, 0, 1857861, 'cmdb:dns:blacklist', '/erm/dnsprivateblacklist/DnsPrivateBlacklist', '/blacklist', '_self', 'icon--peizhishujuyuan', 20, 1, '2020-10-19 16:26:36', -1, '2020-10-26 11:11:53', 0);
+INSERT INTO `sys_menu` VALUES (323144704, 'Database', '数据源', 1, 'classifyI', 3, 0, 1046376448, 'lcdp:codegen:database', '/lcdp/database/Database', '/database', '_self', 'icon-shujuyuan', 302, 1, '2020-09-08 14:50:41', 1, '2020-09-21 19:58:09', 0);
+INSERT INTO `sys_menu` VALUES (323144705, 'Projects', '项目配置', 1, 'classifyI', 3, 0, 1046376448, 'lcdp:codegen:project', '/lcdp/project/Project', '/project', '_self', 'icon-wendangguanli-xiangmuleiwendang', 301, 1, '2020-09-08 14:50:41', -1, '2020-11-12 13:47:10', 0);
+INSERT INTO `sys_menu` VALUES (1046376448, 'Auto Generators', '自动生成', 1, 'classifyI', 2, 0, 103, 'lcdp:codegen', '', '/codegen', '_self', 'icon-codeoptimizatio', 300, 1, '2020-09-08 14:45:51', -1, '2020-10-26 10:52:29', 0);
+INSERT INTO `sys_menu` VALUES (1046376449, 'Code Studio', '在线开发', 2, 'classifyI', 2, 0, 103, 'lcdp:ide', 'https://www.baidu.com', '/ide', '_self', 'icon-weibiaoti46', 400, 1, '2020-09-08 14:45:51', -1, '2020-10-26 10:51:37', 0);
+INSERT INTO `sys_menu` VALUES (1046376450, 'Online Tools', '在线工具', 2, 'classifyI', 2, 0, 103, 'lcdp:onlinetool', 'https://www.baidu.com', '/onlinetool', '_self', 'icon-gongju3', 500, 1, '2020-09-08 14:45:51', 1, '2020-09-21 19:59:37', 0);
+INSERT INTO `sys_menu` VALUES (5148539313668096, 'Cluster Edit', '集群编辑', 3, NULL, 4, 0, 19, 'cmdb:cluster:edit', '/cmdb/clusteredit/ClusterEdit', '/edit', '_self', 'icon-gongju', 10, 1, '2020-10-19 11:07:56', -1, '2020-10-29 11:04:22', 0);
+INSERT INTO `sys_menu` VALUES (5148843513675776, 'Pipeline Edit', '流水线编辑', 3, NULL, 0, 0, 7, 'uci:pipeline:edit', '/uci/pipelineedit/PipelineEdit', '/edit', '_self', 'icon-gongju4', 10, 1, '2020-10-19 16:17:23', -1, '2020-10-26 11:05:15', 0);
+INSERT INTO `sys_menu` VALUES (5148845583302656, 'Record Detail', '记录详情', 3, NULL, 0, 0, 9425556, 'uci:pipehis:detail', '/uci/pipehisdetail/PipeHisDetail', '/detail', '_self', 'icon-gongju4', 10, 1, '2020-10-19 16:19:29', -1, '2020-10-26 11:05:49', 0);
+INSERT INTO `sys_menu` VALUES (5148847007825920, 'udm Different', '文档比较', 3, NULL, 0, 0, 48, 'udm:file:diff', '/udm/diff/Diff', '/diff', '_self', 'icon-shengchengdaima', 100, 1, '2020-10-19 16:20:56', 1, '2020-10-19 16:20:56', 0);
+INSERT INTO `sys_menu` VALUES (5148847840182272, 'Doc Edit', '文档编辑', 3, NULL, 0, 0, 48, 'udm:file:edit', '/udm/mdedit/MdEdit', '/edit', '_self', 'icon-shengchengdaima', 200, 1, '2020-10-19 16:21:47', 1, '2020-10-19 16:21:47', 0);
+INSERT INTO `sys_menu` VALUES (5148851468500992, 'DnsPrivateResolution', '私有域名管理', 3, NULL, 0, 0, 1857861, 'cmdb:dns:resolution', '/cmdb/dnsprivateresolution/DnsPrivateResolution', '/resolution', '_self', 'icon--peizhishujuyuan', 10, 1, '2020-10-19 16:25:28', -1, '2020-10-26 11:11:49', 0);
+INSERT INTO `sys_menu` VALUES (5148852587610112, 'Dns Blacklist', 'DNS黑名单', 3, NULL, 0, 0, 1857861, 'cmdb:dns:blacklist', '/cmdb/dnsprivateblacklist/DnsPrivateBlacklist', '/blacklist', '_self', 'icon--peizhishujuyuan', 20, 1, '2020-10-19 16:26:36', -1, '2020-10-26 11:11:53', 0);
 INSERT INTO `sys_menu` VALUES (5148857019875328, 'Gateway Detal', '网关详情', 3, NULL, 0, 0, 1857862, 'gw:detail', '/gw/gatewaydetail/GatewayDetail', '/detail', '_self', 'icon-gongju1', 10, 1, '2020-10-19 16:31:07', -1, '2020-10-26 11:12:28', 0);
-INSERT INTO `sys_menu` VALUES (5148860410068992, 'Bucket Detail', '桶详情', 3, NULL, 0, 0, 53, 'coss:bucket:detail', '/coss/bucketdetail/BucketDetail', '/detail', '_self', '', 10, 1, '2020-10-19 16:34:34', -1, '2020-10-26 11:07:55', 0);
-INSERT INTO `sys_menu` VALUES (5148861473357824, 'File Manager', '文件管理', 3, NULL, 0, 0, 53, 'coss:bucket:fs', '/coss/fs/Fs', '/fs', '_self', 'icon-biaoqianA01_gongju-269', 20, 1, '2020-10-19 16:35:39', -1, '2020-10-26 11:08:00', 0);
+INSERT INTO `sys_menu` VALUES (5148860410068992, 'Bucket Detail', '桶详情', 3, NULL, 0, 0, 53, 'uos:bucket:detail', '/uos/bucketdetail/BucketDetail', '/detail', '_self', '', 10, 1, '2020-10-19 16:34:34', -1, '2020-10-26 11:07:55', 0);
+INSERT INTO `sys_menu` VALUES (5148861473357824, 'File Manager', '文件管理', 3, NULL, 0, 0, 53, 'uos:bucket:fs', '/uos/fs/Fs', '/fs', '_self', 'icon-biaoqianA01_gongju-269', 20, 1, '2020-10-19 16:35:39', -1, '2020-10-26 11:08:00', 0);
 INSERT INTO `sys_menu` VALUES (5148863627837440, 'Engine Edit', '规则编辑', 3, NULL, 0, 0, 13582, 'umc:custom:engine:edit', '/umc/engineedit/EngineEdit', '/edit', '_self', '', 10, 1, '2020-10-19 16:37:50', -1, '2020-10-26 11:01:11', 0);
 INSERT INTO `sys_menu` VALUES (5148864738459648, 'Mysql Data Source', '数据源编辑', 3, NULL, 0, 0, 36327, 'umc:custom:datasource:edit', '/umc/mysqldatasource/MysqlDataSource', '/edit', '_self', '', 10, 1, '2020-10-19 16:38:58', -1, '2020-10-26 11:01:43', 0);
-INSERT INTO `sys_menu` VALUES (5148866576711680, 'Repo Project', '仓库项目', 3, NULL, 0, 0, 32, 'uci:project', '/vcs/project/Project', '/project', '_self', '', 20, 1, '2020-10-19 16:40:50', 1, '2021-03-13 20:39:46', 0);
-INSERT INTO `sys_menu` VALUES (5148867512385536, 'Project Detail', '项目详情', 3, NULL, 0, 0, 5148866576711680, 'uci:project:detail', '/vcs/projectdetail/ProjectDetail', '/detail', '_self', '', 100, 1, '2020-10-19 16:41:47', 1, '2020-10-19 16:41:47', 0);
-INSERT INTO `sys_menu` VALUES (5148870100566016, 'Table', '表管理', 3, NULL, 0, 0, 323144705, 'udc:table', '/dts/table/Table', '/table', '_self', '', 100, 1, '2020-10-19 16:44:25', 1, '2020-10-19 16:44:25', 0);
-INSERT INTO `sys_menu` VALUES (5148871032979456, 'Table Edit', '表编辑', 3, NULL, 0, 0, 5148870100566016, 'udc:table:edit', '/dts/tableedit/TableEdit', '/edit', '_self', '', 100, 1, '2020-10-19 16:45:22', 1, '2020-10-19 16:45:22', 0);
-INSERT INTO `sys_menu` VALUES (5148871832862720, 'ProjectEdit', '项目编辑', 3, NULL, 0, 0, 323144705, 'udc:project:edit', '/dts/projectedit/ProjectEdit', '/edit', '_self', '', 200, 1, '2020-10-19 16:46:11', 1, '2020-10-19 16:46:11', 0);
+INSERT INTO `sys_menu` VALUES (5148866576711680, 'Repo Project', '仓库项目', 3, NULL, 0, 0, 32, 'uci:project', '/urm/project/Project', '/project', '_self', '', 20, 1, '2020-10-19 16:40:50', 1, '2021-03-23 10:47:50', 0);
+INSERT INTO `sys_menu` VALUES (5148867512385536, 'Project Detail', '项目详情', 3, NULL, 0, 0, 5148866576711680, 'uci:project:detail', '/urm/projectdetail/ProjectDetail', '/detail', '_self', '', 100, 1, '2020-10-19 16:41:47', 1, '2020-10-19 16:41:47', 0);
+INSERT INTO `sys_menu` VALUES (5148870100566016, 'Table', '表管理', 3, NULL, 0, 0, 323144705, 'lcdp:table', '/lcdp/table/Table', '/table', '_self', '', 100, 1, '2020-10-19 16:44:25', 1, '2020-10-19 16:44:25', 0);
+INSERT INTO `sys_menu` VALUES (5148871032979456, 'Table Edit', '表编辑', 3, NULL, 0, 0, 5148870100566016, 'lcdp:table:edit', '/lcdp/tableedit/TableEdit', '/edit', '_self', '', 100, 1, '2020-10-19 16:45:22', 1, '2020-10-19 16:45:22', 0);
+INSERT INTO `sys_menu` VALUES (5148871832862720, 'ProjectEdit', '项目编辑', 3, NULL, 0, 0, 323144705, 'lcdp:project:edit', '/lcdp/projectedit/ProjectEdit', '/edit', '_self', '', 200, 1, '2020-10-19 16:46:11', 1, '2020-10-19 16:46:11', 0);
 INSERT INTO `sys_menu` VALUES (5161231568797696, 'Orchestration Edit', '任务编排编辑', 3, NULL, 0, 0, 51, 'uci:orchestration:edit', '', '/edit', '_self', '', 100, 1, '2020-10-28 10:19:09', 1, '2020-10-28 10:19:09', 0);
 INSERT INTO `sys_menu` VALUES (5161232886300672, 'Cluster Extension Edit', '集群配置编辑', 3, NULL, 0, 0, 102, 'uci:clusterextension:edit', '', '/edit', '_self', '', 100, 1, '2020-10-28 10:20:30', -1, '2020-10-28 10:21:45', 0);
 INSERT INTO `sys_menu` VALUES (5161233843519488, 'Project Dependencies Edit', '依赖关系编辑', 3, NULL, 0, 0, 101, 'uci:project:edit', '', '/edit', '_self', '', 100, 1, '2020-10-28 10:21:28', 1, '2020-10-28 10:21:28', 0);
@@ -1468,13 +1475,18 @@ INSERT INTO `sys_menu` VALUES (5161718880927744, 'Roles Edit', '角色管理编�
 INSERT INTO `sys_menu` VALUES (5161719690903552, 'Organizations Edit', '组织机构编辑', 3, NULL, 0, 0, 14, 'iam:organization:edit', '', '/edit', '_self', '', 100, -1, '2020-10-28 10:35:43', -1, '2020-10-28 10:35:43', 0);
 INSERT INTO `sys_menu` VALUES (5161720512741376, 'Menus Edit', '菜单配置编辑', 3, NULL, 0, 0, 13, 'iam:menu:edit', '', '/edit', '_self', '', 100, -1, '2020-10-28 10:36:33', -1, '2020-10-28 10:36:33', 0);
 INSERT INTO `sys_menu` VALUES (5161721178718208, 'Dictionaries Edit', '字典配置编辑', 3, NULL, 0, 0, 20, 'iam:dict:edit', '', '/edit', '_self', '', 100, -1, '2020-10-28 10:37:13', -1, '2020-10-28 10:37:13', 0);
-INSERT INTO `sys_menu` VALUES (5201256340520960, 'EnterpriseApi', '接口配置', 3, 'classifyH', 2, 0, 5201256340520966, 'udm:enterpriseapi', '/doc/enterpriseapi/EnterpriseApi', '/enterpriseapi', 'NULL', 'icon-gongju3', 100, 1, '2020-09-08 14:45:51', 1, '2020-09-21 19:59:37', 0);
-INSERT INTO `sys_menu` VALUES (5201256340520961, 'Documents', '文档管理', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterprisemd', '/doc/enterprisemd/EnterpriseMd', '/enterprisemd', 'NULL', 'icon-wenjian', 20, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:29:32', 0);
-INSERT INTO `sys_menu` VALUES (5201256340520966, 'APIs Docs', '接口管理', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterpriseprojectpanel', '/doc/enterpriseprojectpanel/EnterpriseProjectPanel', '/enterpriseprojectpanel', 'NULL', 'icon-codeoptimizatio', 10, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:32:26', 0);
-INSERT INTO `sys_menu` VALUES (5201256340520967, 'Doc Template', '文档模版', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterprisetemplate', '/doc/enterprisetemplate/EnterpriseTemplate', '/enterprisetemplate', 'NULL', 'icon-gongju3', 50, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:27:11', 0);
-INSERT INTO `sys_menu` VALUES (5354288238624768, 'Request Tracking', '链路追踪', 2, 'classifyB', 2, 0, 2, 'umc:trace:list', 'http://10.0.0.160:9411/zipkin/', '/tracking', '_self', 'icon-daima-fenzhi', 20, 1, '2021-03-13 19:26:34', 1, '2021-03-13 20:54:51', 0);
-INSERT INTO `sys_menu` VALUES (5354342182584320, 'Application Docs', '应用文档', 1, NULL, 2, 0, 47, 'udm', '/doc/enterpriseprojectpanel/EnterpriseProjectPanel', '/udm', '_self', 'icon-zichanguanli', 5, 1, '2021-03-13 20:21:26', 1, '2021-03-13 20:25:47', 0);
+INSERT INTO `sys_menu` VALUES (5201256340520960, 'EnterpriseApi', '接口配置', 3, 'classifyH', 2, 0, 5201256340520966, 'udm:enterpriseapi', '/udm/enterpriseapi/EnterpriseApi', '/enterpriseapi', '_self', 'icon-gongju3', 100, 1, '2020-09-08 14:45:51', 1, '2020-09-21 19:59:37', 0);
+INSERT INTO `sys_menu` VALUES (5201256340520961, 'Documents', '文档管理', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterprisemd', '/udm/enterprisemd/EnterpriseMd', '/enterprisemd', '_self', 'icon-wenjian', 20, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:29:32', 0);
+INSERT INTO `sys_menu` VALUES (5201256340520966, 'APIs Docs', '接口管理', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterpriseprojectpanel', '/udm/enterpriseprojectpanel/EnterpriseProjectPanel', '/enterpriseprojectpanel', '_self', 'icon-codeoptimizatio', 10, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:32:26', 0);
+INSERT INTO `sys_menu` VALUES (5201256340520967, 'Doc Template', '文档模版', 1, 'classifyH', 2, 0, 5354342182584320, 'udm:enterprisetemplate', '/udm/enterprisetemplate/EnterpriseTemplate', '/enterprisetemplate', '_self', 'icon-gongju3', 50, 1, '2020-09-08 14:45:51', 1, '2021-03-13 20:27:11', 0);
+INSERT INTO `sys_menu` VALUES (5354288238624768, 'Request Tracking', '链路追踪', 2, 'classifyB', 2, 0, 2, 'umc:trace:list', 'http://10.0.0.160:9411/zipkin/', '/tracking', '_blank', 'icon-daima-fenzhi', 20, 1, '2021-03-13 19:26:34', 1, '2021-03-18 16:02:48', 0);
+INSERT INTO `sys_menu` VALUES (5354342182584320, 'Application Docs', '应用文档', 1, NULL, 2, 0, 47, 'udm', '/udm/enterpriseprojectpanel/EnterpriseProjectPanel', '/udm', '_self', 'icon-zichanguanli', 5, 1, '2021-03-13 20:21:26', 1, '2021-03-13 20:25:47', 0);
 INSERT INTO `sys_menu` VALUES (5354373700272128, 'Eureka Dashboard', 'Eureka仪表盘', 2, NULL, 2, 0, 2, 'umc:eureka', 'http://10.0.0.160:9001/', '/eureka', '_self', 'icon-codeoptimizatio', 25, 1, '2021-03-13 20:53:30', 1, '2021-03-14 00:36:47', 0);
+INSERT INTO `sys_menu` VALUES (5367949335592960, 'Jobs Center', '作业中心', 1, NULL, 2, 0, 0, 'uds', '/uds', '/uds', '_self', 'icon-moban', 25, 1, '2021-03-23 11:03:21', 1, '2021-03-23 11:06:12', 0);
+INSERT INTO `sys_menu` VALUES (5367954279940096, 'Elasticjob Cloud', 'Elasticjob(Cloud) 任务', 1, NULL, 3, 0, 5367949335592960, 'uds:elasticjob-cloud', '/elasticjob-cloud', '/elasticjob-cloud', '_self', 'icon-weibiaoti46', 10, 1, '2021-03-23 11:08:23', 1, '2021-03-23 11:17:30', 0);
+INSERT INTO `sys_menu` VALUES (5367955124027392, 'Elasticjob Lite', 'Elasticjob(Lite) 任务', 1, NULL, 3, 0, 5367949335592960, 'uds:elasticjob-lite', '/elasticjob-lite', '/elasticjob-lite', '_self', 'icon-shujuyuan', 20, 1, '2021-03-23 11:09:14', 1, '2021-03-23 11:17:44', 0);
+INSERT INTO `sys_menu` VALUES (5367956426866688, 'Spark Jobs', 'Spark Job 任务', 1, NULL, 3, 0, 5367949335592960, 'uds:spark-job', '/spark-job', '/spark-job', '_self', 'icon-yonghupeizhi', 30, 1, '2021-03-23 11:10:34', 1, '2021-03-23 11:16:53', 0);
+INSERT INTO `sys_menu` VALUES (5367959624990720, 'Flink Jobs', 'Flink Job 任务', 1, NULL, 3, 0, 5367949335592960, 'uds:flink-job', '/flink-job', '/flink-job', '_self', 'icon-kaifa', 40, 1, '2021-03-23 11:13:49', 1, '2021-03-23 11:16:47', 0);
 COMMIT;
 
 -- ----------------------------
@@ -1506,7 +1518,7 @@ CREATE TABLE `sys_organization` (
   `type` int(1) NOT NULL DEFAULT '0' COMMENT '用户分组类型（预留）1park,2company,3department',
   `parent_id` bigint(25) DEFAULT NULL COMMENT '父级id',
   `parent_ids` varchar(512) COLLATE utf8_bin DEFAULT NULL COMMENT '父级路径id列表, 为减少使用时计算量提高性能(逗号分隔)',
-  `area_id` bigint(25) NOT NULL COMMENT '区域id',
+  `area_id` bigint(25) DEFAULT NULL COMMENT '区域id',
   `enable` int(1) NOT NULL DEFAULT '1' COMMENT '用户组启用状态（0:禁用/1:启用）',
   `status` int(1) NOT NULL DEFAULT '0' COMMENT '用户组状态（预留）',
   `create_by` bigint(25) NOT NULL,
@@ -1544,8 +1556,8 @@ CREATE TABLE `sys_organization_role` (
   `id` bigint(25) NOT NULL,
   `organization_id` bigint(25) NOT NULL,
   `role_id` bigint(25) NOT NULL,
-  `create_by` bigint(25) NOT NULL,
-  `create_date` datetime NOT NULL,
+  `create_by` bigint(25) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `group_id` (`organization_id`) USING BTREE,
   KEY `role_id` (`role_id`) USING BTREE,
@@ -1706,7 +1718,7 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (1, 'root', 'root', '系统超级管理员', '729f609cb2db3a1d50f51d658adb7f571b8ca72a7046641eae6b8824571f1bce', 'a3e0b320c73020aa81ebf87bd8611bf1', 0, 1, 0, '983708408@qq.com', '18127968606', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '系统超级管理员', 1, '2019-11-17 18:11:00', 1, '2019-11-17 18:13:34', 0);
+INSERT INTO `sys_user` VALUES (1, 'root', 'root', '系统超级管理员', 'cd446a729ea1d31d712be2ff9c1401d87beb14a811ceb7a61b3a66a4d34177f8', 'a3e0b320c73020aa81ebf87bd8611bf1', 0, 1, 0, '983708408@qq.com', '18127968606', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '系统超级管理员', 1, '2019-11-17 18:11:00', 1, '2019-11-17 18:13:34', 0);
 INSERT INTO `sys_user` VALUES (2, 'wanglsir', 'wanglsir', 'wanglsir', '5d384f8be417463220e009fa57c523fe3feb345807d5983deb5193e6df1f154b43bc75d00ba47742d3b25e74f9fa0cec51e529edb4b8b61bcdfbfd21b697b1ff', 'd553592177c116c3458f02007577fc09', 0, 1, 0, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OWNER-wanglsir', 1, '2019-11-17 18:11:00', 1, '2020-10-29 11:12:59', 0);
 INSERT INTO `sys_user` VALUES (5, 'liuxl', 'liuxl', '刘童鞋', '81d206f6f32bf1d48728fc351cdde734a658b908cac178d3ab3be6bfff9644f169548439c0ab4e5c40b834807ef5dcdbd33476f53466795ce693e61ae548cf9a', 'cb93f6efd291fbc66d59d082e4014c12', 0, 1, 0, 'zhangsan@gmail.com', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Tester-刘童鞋', 1, '2019-10-30 11:16:05', 1, '2020-10-30 08:35:41', 0);
 INSERT INTO `sys_user` VALUES (7, 'hwjie', 'hwjie', '何童鞋', '9bc434a8c2fb6f0ff3d218198bc2eea4ce4376c900b1a7f752098c0aad080e2d6f8c3c3a9f9117f1840fc9584f809718', '36c9ebe0f18dfb0464f80dbc21180803', 0, 1, 0, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PMC-何童鞋', 1, '2019-11-17 15:01:05', 1, '2020-10-29 11:12:39', 0);
@@ -1933,7 +1945,7 @@ CREATE TABLE `uci_pipe_step_api` (
   `pipe_id` bigint(20) NOT NULL,
   `enable` int(2) NOT NULL,
   `repository_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='UCI构建管道阶段之api构建配置表(自动构建部署应用的同时更新swagger-api文档到UDM(文档管理中心))';
 
 -- ----------------------------
@@ -2454,6 +2466,13 @@ CREATE TABLE `udm_ee_api_repo_group` (
   `del_flag` int(1) DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='企业级API仓库分组';
+
+-- ----------------------------
+-- Records of udm_ee_api_repo_group
+-- ----------------------------
+BEGIN;
+INSERT INTO `udm_ee_api_repo_group` VALUES (5366596893671424, 'test', NULL, NULL, '2021-03-22 12:07:35', 1, '2021-03-22 12:07:35', 1, 0);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for udm_ee_api_repo_version
